@@ -30,13 +30,13 @@ const Footer: React.FC = () => {
             <h5 className="text-xl font-bold mb-4">Contact Us</h5>
             <ul className="list-none">
               <li className="mb-2">
-                <span className="text-gray-400">123 Repair St, Fixville</span>
+                <span className="text-gray-400">Hack repairs, Kilifi</span>
               </li>
               <li className="mb-2">
-                <span className="text-gray-400">Email: support@phonerepair.com</span>
+                <span className="text-gray-400">Email: jobwafulabg@gmail.com</span>
               </li>
               <li className="mb-2">
-                <span className="text-gray-400">Phone: (123) 456-7890</span>
+                <span className="text-gray-400">Phone: +254 741 699 821</span>
               </li>
             </ul>
           </div>
