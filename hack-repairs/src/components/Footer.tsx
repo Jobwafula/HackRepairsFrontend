@@ -1,0 +1,52 @@
+// components/Footer.tsx
+import React from 'react';
+
+const Footer: React.FC = () => {
+  return (
+    <footer className="bg-gray-800 text-white py-10">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="flex flex-wrap -mx-6">
+          <div className="w-full md:w-1/3 px-6 mb-6 md:mb-0">
+            <h5 className="text-xl font-bold mb-4">PhoneRepair</h5>
+            <p className="text-gray-400">
+              We provide top-notch phone screen repair services and sell high-quality replacement screens for all major brands.
+            </p>
+          </div>
+          <div className="w-full md:w-1/3 px-6 mb-6 md:mb-0">
+            <h5 className="text-xl font-bold mb-4">Services</h5>
+            <ul className="list-none">
+              <li className="mb-2">
+                <a href="#services" className="text-gray-400 hover:text-white transition">Screen Repairs</a>
+              </li>
+              <li className="mb-2">
+                <a href="#services" className="text-gray-400 hover:text-white transition">Replacement Screens</a>
+              </li>
+              <li className="mb-2">
+                <a href="#services" className="text-gray-400 hover:text-white transition">Phone Accessories</a>
+              </li>
+            </ul>
+          </div>
+          <div className="w-full md:w-1/3 px-6">
+            <h5 className="text-xl font-bold mb-4">Contact Us</h5>
+            <ul className="list-none">
+              <li className="mb-2">
+                <span className="text-gray-400">123 Repair St, Fixville</span>
+              </li>
+              <li className="mb-2">
+                <span className="text-gray-400">Email: support@phonerepair.com</span>
+              </li>
+              <li className="mb-2">
+                <span className="text-gray-400">Phone: (123) 456-7890</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="text-center text-gray-400 mt-10">
+          &copy; 2024 Hack-Repairs. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+export default Footer;

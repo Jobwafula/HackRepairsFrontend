@@ -1,10 +1,15 @@
+import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
 import Image from "next/image";
 
 export default function Home() {
   return (
     
-           <div className="flex justify-center items-center h-screen">
-            <h1>Hack repairs</h1>
+           <div className="">
+            <Navbar />
+            <Hero />
+            <Footer />
            </div>
 
         
