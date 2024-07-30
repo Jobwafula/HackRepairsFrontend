@@ -2,7 +2,9 @@
 import React from 'react';
 import { Input } from "@/components/ui/input";
 import { cn } from '@/lib/utils';
-
+import { FiShoppingCart } from "react-icons/fi";
+import { FaRegUser } from "react-icons/fa6";
+import Link from 'next/link'
 const Navbar: React.FC = () => {
   const extraLinks = [
     {
@@ -35,13 +37,14 @@ const Navbar: React.FC = () => {
               </button>
             </div>
           </div>
-          <div className="hidden md:flex items-center space-x-4">
-            <a href="#home" className="text-white py-2">Home</a>
-            <a href="#cart" className="text-white py-2">Cart</a>
-            <a href="#orders" className="text-white py-2">Orders</a>
-            <a href="#contact" className="text-white py-2">Contact</a>
+          <div className="hidden  md:flex items-center space-x-4">
+            
+            <Link href="#cart" className="text-white py-2 flex items-center gap-2"><FiShoppingCart />Cart</Link>
+            <Link href="#orders" className="text-white py-2 flex items-center gap-2">Orders</Link>
+            <Link href="#contact" className="text-white py-2 flex items-center gap-2"><FaRegUser />Sign In</Link>
+            <Link href="#home" className="text-white py-2 flex items-center gap-2"></Link>
           </div>
-        </div>
+        </div>    
       </nav>
       <div className="container mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6">
         <Input type="text" placeholder="Search all phone screens (e.g Tecno, Samsung)" className={cn('outline-none p-2 w-full md:w-1/2 rounded-md border border-gray-300')} />

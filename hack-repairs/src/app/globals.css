@@ -67,3 +67,16 @@
     @apply bg-background text-foreground;
   }
 }
+/* animation */
+@keyframes rotate {
+  from {
+    transform: rotate(-180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-rotate {
+  animation: rotate 2s ease-in-out;
+}
