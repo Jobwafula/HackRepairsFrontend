@@ -1,68 +1,60 @@
 // components/Navbar.tsx
 import React from 'react';
-import { Input } from "@/components/ui/input"
+import { Input } from "@/components/ui/input";
 import { cn } from '@/lib/utils';
-import { title } from 'process';
 
 const Navbar: React.FC = () => {
   const extraLinks = [
     {
-      title:"Products"
+      title: "Products"
     },
     {
-      title:"Sell With Us"
+      title: "Sell With Us"
     },
     {
-      title:"About our Products"
+      title: "About our Products"
+    },
+    {
+      title: "About Us"
     }
-    ,{
-      title:"About Us"
-    }
-  ]
+  ];
+
   return (
     <div>
-    <nav className="bg-gray-800 text-white ">
-      <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
-        <div className="flex justify-between items-center">
-          <div>
+      <nav className="bg-gray-800 text-white">
+        <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+          <div className="flex justify-between items-center">
             <a href="/" className="text-white text-xl font-bold md:text-2xl">
               Hack-Repairs
             </a>
+            <div className="md:hidden">
+              <button type="button" className="text-white focus:outline-none">
+                <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+                  <path d="M4 5h16M4 12h16m-7 7h7"></path>
+                </svg>
+              </button>
+            </div>
           </div>
-          <div className="md:hidden">
-            <button type="button" className="text-white focus:outline-none">
-              <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
-                <path d="M4 5h16M4 12h16m-7 7h7"></path>
-              </svg>
-            </button>
+          <div className="hidden md:flex items-center space-x-4">
+            <a href="#home" className="text-white py-2">Home</a>
+            <a href="#cart" className="text-white py-2">Cart</a>
+            <a href="#orders" className="text-white py-2">Orders</a>
+            <a href="#contact" className="text-white py-2">Contact</a>
           </div>
         </div>
-        <div className="md:flex items-center">
-          <a href="#home" className="text-white py-2 mx-4">Home</a>
-          <a href="#services" className="text-white py-2 mx-4">Cart</a>
-          <a href="#services" className="text-white py-2 mx-4">orders</a>
-          <a href="#contact" className="text-white py-2 mx-4">Contact</a>
-        </div>
+      </nav>
+      <div className="container mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6">
+        <Input type="text" placeholder="Search all phone screens (e.g Tecno, Samsung)" className={cn('outline-none p-2 w-full md:w-1/2 rounded-md border border-gray-300')} />
+        <ul className="flex flex-wrap gap-4">
+          {extraLinks.map((link, index) => (
+            <li key={index} className="text-gray-800 hover:text-gray-600">
+              {link.title}
+            </li>
+          ))}
+        </ul>
       </div>
-    </nav>
-    <div className='m-6 flex items-center'>
-      <div>
-    <Input type="text" placeholder="Search all phone screens (e.g Tecno,Samsung) " className={cn('outline-none')} />
-    </div> <div>
-      <ul className='flex'>
-        {extraLinks.map((link,index)=>{
-          return (<div>
-            <li>{link.title}</li>
-          </div>)
-           
-
-        })}
-       
-      </ul>
-    </div>
-    </div>
     </div>
   );
-}
+};
 
 export default Navbar;
