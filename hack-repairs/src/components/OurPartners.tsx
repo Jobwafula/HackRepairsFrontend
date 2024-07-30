@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function OurPartners() {
   return (
-    <div className='mb-8 ml-8'>
+    <div className='mb-8 mt-8 ml-8'>
         <h1 className='text-2xl font-bold'>Our Partners</h1>
         <div >
           <div className='flex items-center gap-2'><Image src='/mutable.jpeg' width={100}
