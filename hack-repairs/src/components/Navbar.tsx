@@ -7,16 +7,16 @@ import { title } from 'process';
 const Navbar: React.FC = () => {
   const extraLinks = [
     {
-      title:"About our Products"
+      title:"Products"
     },
     {
-      title:"About our Products"
+      title:"Sell With Us"
     },
     {
       title:"About our Products"
     }
     ,{
-      title:"About our Products"
+      title:"About Us"
     }
   ]
   return (
