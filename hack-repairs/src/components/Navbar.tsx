@@ -1,8 +1,26 @@
 // components/Navbar.tsx
 import React from 'react';
+import { Input } from "@/components/ui/input"
+import { cn } from '@/lib/utils';
+import { title } from 'process';
 
 const Navbar: React.FC = () => {
+  const extraLinks = [
+    {
+      title:"About our Products"
+    },
+    {
+      title:"About our Products"
+    },
+    {
+      title:"About our Products"
+    }
+    ,{
+      title:"About our Products"
+    }
+  ]
   return (
+    <div>
     <nav className="bg-gray-800 text-white ">
       <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
         <div className="flex justify-between items-center">
@@ -27,6 +45,23 @@ const Navbar: React.FC = () => {
         </div>
       </div>
     </nav>
+    <div className='m-6 flex items-center'>
+      <div>
+    <Input type="text" placeholder="Search all phone screens (e.g Tecno,Samsung) " className={cn('outline-none')} />
+    </div> <div>
+      <ul className='flex'>
+        {extraLinks.map((link,index)=>{
+          return (<div>
+            <li>{link.title}</li>
+          </div>)
+           
+
+        })}
+       
+      </ul>
+    </div>
+    </div>
+    </div>
   );
 }
 
