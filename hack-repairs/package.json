@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^5.2.8",
     "@next/swc-win32-x64-msvc": "^14.2.5",
     "@prisma/client": "^5.16.2",
     "class-variance-authority": "^0.7.0",
