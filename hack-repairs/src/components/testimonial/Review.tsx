@@ -16,8 +16,8 @@ const Review = () => {
     slidesToScroll: 1,
     arrows: true,
     adaptiveHeight: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    nextArrow: <SampleNextArrow className={undefined} style={undefined} onClick={undefined} />,
+    prevArrow: <SamplePrevArrow className={undefined} style={undefined} onClick={undefined} />
   };
 
   const reviews = [
@@ -83,7 +83,7 @@ const Review = () => {
 };
 
 // Custom Next Arrow
-const SampleNextArrow = (props) => {
+const SampleNextArrow = (props: { className: any; style: any; onClick: any; }) => {
   const { className, style, onClick } = props;
   return (
     <div
@@ -95,7 +95,7 @@ const SampleNextArrow = (props) => {
 };
 
 // Custom Prev Arrow
-const SamplePrevArrow = (props) => {
+const SamplePrevArrow = (props: { className: any; style: any; onClick: any; }) => {
   const { className, style, onClick } = props;
   return (
     <div

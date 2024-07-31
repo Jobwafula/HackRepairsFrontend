@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
             We provide top-notch phone screen repair services and sell high-quality replacement screens for all major brands.
           </p>
           <div className="mt-8">
-            <Link href="#services" className="bg-gray-800 text-white py-2 px-6 rounded-full text-lg hover:bg-blue-700 transition duration-300">
+            <Link href="#services" className="bg-[#003300] text-white py-2 px-6 rounded-full text-lg hover:bg-blue-700 transition duration-300">
               Explore Services
             </Link>
           </div>

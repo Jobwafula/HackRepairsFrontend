@@ -5,6 +5,8 @@ import { cn } from '@/lib/utils';
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa6";
 import Link from 'next/link'
+import { FaSearch } from "react-icons/fa";
+
 const Navbar: React.FC = () => {
 
  
@@ -52,8 +54,10 @@ const Navbar: React.FC = () => {
           </div>
         </div>    
       </nav>
-      <div className="container mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6">
-        <Input type="text" placeholder="Search all phone screens (e.g Tecno, Samsung)" className={cn('outline-none p-2 w-full md:w-1/2 rounded-md border border-gray-300')} />
+      <div className="container mx-auto px-6 py-4 flex flex-col  md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6">
+       <div className='flex items-center border w-full md:w-1/2'>
+       <input type="text" placeholder="Search all phone screens  (e.g Tecno, Samsung)" className='h-full p-2 outline-none w-full  rounded-md ' />
+       <span className='bg-button text-white p-4 h-full'><FaSearch /></span></div> 
         <ul className="flex flex-wrap gap-4">
           {extraLinks.map((link, index) => (
             <li key={index} className="text-gray-800 hover:text-gray-600">
