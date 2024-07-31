@@ -128,14 +128,14 @@ export default function Contact() {
             <div className="p-5">
               <h1 className="text-2xl mb-3 font-semibold text-gray-500">Contact Us</h1>
               <p className="flex text-sm font-semibold leading-loose">
-                <span><IoLocationOutline className="mr-2 h-5 w-5"/></span>Charo Wa Mae, Alongside Pwani University, Mombasa Malindi road.
+                <span className="text-button"><IoLocationOutline className="mr-2 h-5 w-5"/></span>Charo Wa Mae, Alongside Pwani University, Mombasa Malindi road.
                 P.O. Box 123 Kilifi, Kenya.
               </p>
               <p className="flex text-sm font-semibold mt-3">
-                <span><FaPhoneAlt className="mr-2 h-5 w-5"/></span>+254 741 699 821
+                <span className="text-button"><FaPhoneAlt className="mr-2 h-5 w-5"/></span>+254 741 699 821
               </p>
               <p className="flex text-sm font-semibold mt-3">
-                <span><IoMdMail className="mr-2 h-5 w-5"/></span>jobwafulabg@gmail.com
+                <span className="text-button"><IoMdMail className="mr-2 h-5 w-5"/></span>jobwafulabg@gmail.com
               </p>
             </div>
           </div>
