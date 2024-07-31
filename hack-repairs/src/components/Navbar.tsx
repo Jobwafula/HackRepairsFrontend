@@ -5,8 +5,9 @@ import { cn } from '@/lib/utils';
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa6";
 import Link from 'next/link'
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 const Navbar: React.FC = () => {
+
+ 
   const extraLinks = [
     {
       title: "Products"
@@ -42,15 +43,10 @@ const Navbar: React.FC = () => {
             
             <Link href="#cart" className="text-white py-2 flex items-center gap-2"><FiShoppingCart />Cart</Link>
             <Link href="#orders" className="text-white py-2 flex items-center gap-2">Orders</Link>
-            {/* <Link href="#contact" className="text-white py-2 flex items-center gap-2"><FaRegUser />Sign In</Link> */}
-            <div>
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-            </div>
+
+            
+            <Link href="/signin" className="text-white py-2 flex items-center gap-2"><FaRegUser />Sign In</Link>
+          
             
             <Link href="#home" className="text-white py-2 flex items-center gap-2"></Link>
           </div>
