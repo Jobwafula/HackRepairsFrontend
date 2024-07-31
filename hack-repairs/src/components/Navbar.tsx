@@ -1,15 +1,32 @@
+'use client'
+
 // components/Navbar.tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { cn } from '@/lib/utils';
-import { FiShoppingCart } from "react-icons/fi";
+import { FiLogOut, FiShoppingCart } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa6";
 import Link from 'next/link'
-import { FaSearch } from "react-icons/fa";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import { Button } from './ui/button';
+import { useAuth } from '@/context/authContext';
+import { useRouter } from 'next/navigation';
 
 const Navbar: React.FC = () => {
+  interface User {
+    email: string;
+    name: string;
+    // Add any other properties that the User object should have
+  }
+  const [user, setUser] = useState<User | null>(null);
+  const {signout} = useAuth();
+  const router = useRouter();
 
- 
+
   const extraLinks = [
     {
       title: "Products"
@@ -24,6 +41,32 @@ const Navbar: React.FC = () => {
       title: "About Us"
     }
   ];
+
+  useEffect(() => {
+    // Get user from local storage
+    const localUser = localStorage.getItem('user');
+    
+    // Check if the localUser exists and parse it if it's not null
+    if (localUser) {
+      try {
+        const parsedUser: User = JSON.parse(localUser);
+        setUser(parsedUser);
+      } catch (error) {
+        console.error("Failed to parse user from localStorage", error);
+      }
+    } else {
+      setUser(null); // If no user is found in localStorage
+    }
+    
+    console.log("local user", localUser);
+  }, []);
+
+
+  const handleSignout = () => {
+    signout(() => {
+      window.location.reload();
+    });
+  };
 
   return (
     <div>
@@ -45,19 +88,25 @@ const Navbar: React.FC = () => {
             
             <Link href="#cart" className="text-white py-2 flex items-center gap-2"><FiShoppingCart />Cart</Link>
             <Link href="#orders" className="text-white py-2 flex items-center gap-2">Orders</Link>
-
-            
-            <Link href="/signin" className="text-white py-2 flex items-center gap-2"><FaRegUser />Sign In</Link>
-          
-            
+            {user ? (
+              <div >
+                <Popover>
+                  <PopoverTrigger>{user.name}</PopoverTrigger>
+                  <PopoverContent><Button onClick={handleSignout}><FiLogOut className='mr-4'/> Signout</Button></PopoverContent>
+                </Popover>
+              </div>
+            ) : (
+              <Link href="/signin" className="text-white py-2 flex items-center gap-2">
+                <FaRegUser />Sign In
+              </Link>
+            )}
+                        
             <Link href="#home" className="text-white py-2 flex items-center gap-2"></Link>
           </div>
         </div>    
       </nav>
-      <div className="container mx-auto px-6 py-4 flex flex-col  md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6">
-       <div className='flex items-center border w-full md:w-1/2'>
-       <input type="text" placeholder="Search all phone screens  (e.g Tecno, Samsung)" className='h-full p-2 outline-none w-full  rounded-md ' />
-       <span className='bg-button text-white p-4 h-full'><FaSearch /></span></div> 
+      <div className="container mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6">
+        <Input type="text" placeholder="Search all phone screens (e.g Tecno, Samsung)" className={cn('outline-none p-2 w-full md:w-1/2 rounded-md border border-gray-300')} />
         <ul className="flex flex-wrap gap-4">
           {extraLinks.map((link, index) => (
             <li key={index} className="text-gray-800 hover:text-gray-600">

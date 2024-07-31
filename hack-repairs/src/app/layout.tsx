@@ -3,6 +3,8 @@ import { Roboto } from "next/font/google"; // Import Roboto font
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { AuthProvider } from "@/context/authContext";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -22,10 +24,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn('min-h-screen bg-background font-sans antialiased', roboto.variable)}>
-        <AuthProvider>
+      <body className={cn('min-h-screen bg-background font-sans antialiased')}>
+      <AuthProvider>
+        <div>
+          <Navbar/>
+        </div>
+        <div>
           {children}
-        </AuthProvider>
+        </div>
+        <Footer />
+
+      </AuthProvider>
+
       </body>
     </html>
   );

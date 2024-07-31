@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
         <div className="h-screen absolute md:relative inset-0 flex items-center justify-center md:justify-end">
-          <img src="/phone.jpeg" alt="Phone Repair" className="mx-auto lg:ml-auto lg:mr-0 w-full h-full max-w-md animate-rotate" />
+          <img src="/repair.png" alt="Phone Repair" className="mx-auto lg:ml-auto lg:mr-20 w-full h-full max-w-md animate-rotate" />
         <div className='absolute bg-black inset-0 bg-opacity-75 md:hidden'></div></div>
       </div>
     </div>
