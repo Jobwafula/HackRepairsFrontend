@@ -1,3 +1,4 @@
+import Categories from "@/components/Categories";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
@@ -10,6 +11,7 @@ export default function Home() {
            <div className="">
             <Navbar />
             <Hero />
+            <Categories />
             <OurPartners />
             <Footer />
            </div>
