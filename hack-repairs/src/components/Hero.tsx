@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
     <div className="h-screen relative bg-white">
       <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 items-center gap-8 h-full">
         <div className="text-center flex flex-col justify-center items-center lg:items-start z-50 lg:text-left h-full">
-          <h2 className="text-3xl font-bold text-white  md:text-gray-800 md:text-6xl">
+          <h2 className="text-3xl font-bold text-white  md:text-black md:text-6xl">
             Phone Screen Repair & Sales
           </h2>
           <p className="mt-6 text-xl  md:text-lg text-white  md:text-gray-600">
