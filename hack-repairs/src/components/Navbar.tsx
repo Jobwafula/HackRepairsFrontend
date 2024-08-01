@@ -29,16 +29,20 @@ const Navbar: React.FC = () => {
 
   const extraLinks = [
     {
-      title: "Products"
+      title: "Products",
+      to: '/products'
     },
     {
-      title: "Sell With Us"
+      title: "Sell With Us",
+      to: 'sell-with-us'
     },
     {
-      title: "About our Products"
+      title: "About our Products",
+      to: "/about-product"
     },
     {
-      title: "About Us"
+      title: "About Us",
+      to: '/about-us'
     }
   ];
 
@@ -110,7 +114,9 @@ const Navbar: React.FC = () => {
         <ul className="flex flex-wrap gap-4">
           {extraLinks.map((link, index) => (
             <li key={index} className="text-gray-800 hover:text-gray-600">
-              {link.title}
+              <Link href={link.to}>
+               {link.title}
+              </Link>
             </li>
           ))}
         </ul>

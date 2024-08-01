@@ -2,13 +2,13 @@ import React from 'react';
 
 const categories = [
   { id: 1, name: 'Tecno', image: '/categories/tecno.png' },
-  { id: 2, name: 'Samsung', image: '/categories/tecno.png' },
-  { id: 3, name: 'Itel', image: '/categories/tecno.png' },
-  { id: 4, name: 'Huawei', image: '/categories/tecno.png' },
-  { id: 5, name: 'Apple', image: '/categories/tecno.png' },
-  { id: 6, name: 'Nokia', image: '/categories/tecno.png' },
-  { id: 7, name: 'Xiaomi', image: '/categories/tecno.png' },
-  { id: 8, name: 'Oppo', image: '/categories/tecno.png' },
+  { id: 2, name: 'Samsung', image: '/categories/samsung.png' },
+  { id: 3, name: 'Itel', image: '/categories/itel.png' },
+  { id: 4, name: 'Huawei', image: '/categories/huawei.png' },
+  { id: 5, name: 'Apple', image: '/categories/apple.png' },
+  { id: 6, name: 'Nokia', image: '/categories/nokia.png' },
+  { id: 7, name: 'Xiaomi', image: '/categories/xiomi.png' },
+  { id: 8, name: 'Oppo', image: '/categories/oppo.png' },
 ];
 
 const Categories = () => {
