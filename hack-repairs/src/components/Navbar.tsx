@@ -1,50 +1,55 @@
-'use client'
-import React, { useEffect, useState } from 'react';
+"use client";
+import React, { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 import { FiLogOut, FiShoppingCart } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa6";
 import { FaBus } from "react-icons/fa";
-import Link from 'next/link'
+import { RiArrowDropDownLine } from "react-icons/ri";
+import Link from "next/link";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
-import { Button } from './ui/button';
-import { useAuth } from '@/context/authContext';
-import { useRouter } from 'next/navigation';
+} from "@/components/ui/popover";
+import { Button } from "./ui/button";
+import { useAuth } from "@/context/authContext";
+import { useRouter } from "next/navigation";
 
 const Navbar: React.FC = () => {
   interface User {
     email: string;
     name: string;
-    // Add any other properties that the User object should have
   }
   const [user, setUser] = useState<User | null>(null);
-  const {signout} = useAuth();
+  const { signout } = useAuth();
   const router = useRouter();
 
-// an Array of objects for extra links
+  // an Array of objects for extra links
   const extraLinks = [
     {
-      title: "Products"
+      title: "Sell With Us",
     },
     {
-      title: "Sell With Us"
+      title: "About our Products",
     },
     {
-      title: "About our Products"
+      title: "About Us",
     },
-    {
-      title: "About Us"
-    }
   ];
 
   useEffect(() => {
     // Get user from local storage
-    const localUser = localStorage.getItem('user');
-    
+    const localUser = localStorage.getItem("user");
+
     // Check if the localUser exists and parse it if it's not null
     if (localUser) {
       try {
@@ -56,10 +61,9 @@ const Navbar: React.FC = () => {
     } else {
       setUser(null); // If no user is found in localStorage
     }
-    
+
     console.log("local user", localUser);
   }, []);
-
 
   const handleSignout = () => {
     signout(() => {
@@ -70,7 +74,7 @@ const Navbar: React.FC = () => {
   return (
     <div>
       <nav className="bg-gray-800 text-white">
-        <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+        <div className="container mx-auto px-6 py-3 flex justify-between md:flex md:justify-between md:items-center">
           <div className="flex justify-between items-center">
             <a href="/" className="text-white text-xl font-bold md:text-2xl">
               Hack-Repairs
@@ -83,36 +87,95 @@ const Navbar: React.FC = () => {
               </button>
             </div>
           </div>
-          <div className="hidden  md:flex items-center space-x-4">
-            
-            <Link href="#cart" className="text-white py-2 flex items-center gap-2"><FiShoppingCart />Cart</Link>
-            <Link href="#orders" className="text-white py-2 flex items-center gap-2"><FaBus /> Orders</Link>
+          <div className="flex  md:flex items-center space-x-4">
+            <Link
+              href="#cart"
+              className="text-white py-2 flex items-center gap-2"
+            >
+              <FiShoppingCart />
+              Cart
+            </Link>
+            <Link
+              href="#orders"
+              className="text-white py-2 flex items-center gap-2"
+            >
+              <FaBus /> Orders
+            </Link>
+            <Link
+              href="#orders"
+              className="text-white py-2 flex items-center gap-2"
+            >
+              <FaRegUser />{" "}
+            </Link>
             {user ? (
-              <div >
+              <div>
                 <Popover>
                   <PopoverTrigger>{user.name}</PopoverTrigger>
-                  <PopoverContent><Button onClick={handleSignout}><FiLogOut className='mr-4'/> Signout</Button></PopoverContent>
+                  <PopoverContent>
+                    <Button onClick={handleSignout}>
+                      <FiLogOut className="mr-4" /> Signout
+                    </Button>
+                  </PopoverContent>
                 </Popover>
               </div>
             ) : (
-              <Link href="/signin" className="text-white hover:underline py-2 flex items-center gap-2">
-                <FaRegUser />Sign In
+              <Link
+                href="/signin"
+                className="text-white hidden md:flex hover:underline py-2 items-center gap-2"
+              >
+                Sign In
               </Link>
             )}
-                        
-            <Link href="#home" className="text-white py-2 flex items-center gap-2"></Link>
+
+            <Link
+              href="#home"
+              className="text-white py-2 flex items-center gap-2"
+            ></Link>
           </div>
-        </div>    
+        </div>
       </nav>
       <div className="container mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6">
-        <Input type="text" placeholder="Search all phone screens (e.g Tecno, Samsung)" className={cn('outline-none p-2 w-full md:w-1/2 rounded-md border border-gray-300')} />
+        <Input
+          type="text"
+          placeholder="Search all phone screens (e.g Tecno, Samsung)"
+          className={cn(
+            "outline-none p-2 w-full md:w-1/2 rounded-md border border-gray-300"
+          )}
+        />
+        <div className="flex ">
+        <div className="flex">
+         <p className="text-gray-800">Products</p> 
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              {" "}
+              <span className="text-2xl">
+                <RiArrowDropDownLine />
+              </span>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-gray-800 text-white">
+              <DropdownMenuItem>Tecno</DropdownMenuItem>
+              <DropdownMenuItem>Sasmsung</DropdownMenuItem>
+              <DropdownMenuItem>Itel</DropdownMenuItem>
+              <DropdownMenuItem>Infinix</DropdownMenuItem>
+              <DropdownMenuItem>Nokia</DropdownMenuItem>
+              <DropdownMenuItem>Huawei</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+        <div>
+          {/* links section */}
         <ul className="flex flex-wrap gap-4">
           {extraLinks.map((link, index) => (
-            <li key={index} className="text-gray-800 hover:text-gray-600">
+            <li
+              key={index}
+              className="text-gray-800 hover:underline hover:cursor-pointer hover:text-gray-600"
+            >
               {link.title}
             </li>
           ))}
         </ul>
+        </div>
+        </div>
       </div>
     </div>
   );
