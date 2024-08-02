@@ -11,8 +11,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -30,20 +28,16 @@ const Navbar: React.FC = () => {
     name: string;
   }
   const [user, setUser] = useState<User | null>(null);
+  const [searchInput, setSearchInput] = useState("");
+  const [searchResults, setSearchResults] = useState<string[]>([]); // Assuming search results are strings
   const { signout } = useAuth();
   const router = useRouter();
 
-  // an Array of objects for extra links
+  // Array of objects for extra links
   const extraLinks = [
-    {
-      title: "Sell With Us",
-    },
-    {
-      title: "About our Products",
-    },
-    {
-      title: "About Us",
-    },
+    { title: "Sell With Us" },
+    { title: "About our Products" },
+    { title: "About Us" },
   ];
 
   useEffect(() => {
@@ -71,6 +65,19 @@ const Navbar: React.FC = () => {
     });
   };
 
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value);
+    if (e.target.value.trim() === "") {
+      setSearchResults([]);
+    } else {
+      // Simulate fetching/searching results
+      const results = ["Tecno Screen", "Samsung Screen", "Itel Screen"].filter(
+        (item) => item.toLowerCase().includes(e.target.value.toLowerCase())
+      );
+      setSearchResults(results);
+    }
+  };
+
   return (
     <div>
       <nav className="bg-gray-800 text-white">
@@ -87,25 +94,16 @@ const Navbar: React.FC = () => {
               </button>
             </div>
           </div>
-          <div className="flex  md:flex items-center space-x-4">
-            <Link
-              href="#cart"
-              className="text-white py-2 flex items-center gap-2"
-            >
+          <div className="flex md:flex items-center space-x-4">
+            <Link href="#cart" className="text-white py-2 flex items-center gap-2">
               <FiShoppingCart />
               Cart
             </Link>
-            <Link
-              href="#orders"
-              className="text-white py-2 flex items-center gap-2"
-            >
+            <Link href="#orders" className="text-white py-2 flex items-center gap-2">
               <FaBus /> Orders
             </Link>
-            <Link
-              href="#orders"
-              className="text-white py-2 flex items-center gap-2"
-            >
-              <FaRegUser />{" "}
+            <Link href="#orders" className="text-white py-2 flex items-center gap-2">
+              <FaRegUser />
             </Link>
             {user ? (
               <div>
@@ -119,62 +117,66 @@ const Navbar: React.FC = () => {
                 </Popover>
               </div>
             ) : (
-              <Link
-                href="/signin"
-                className="text-white hidden md:flex hover:underline py-2 items-center gap-2"
-              >
+              <Link href="/signin" className="text-white hidden md:flex hover:underline py-2 items-center gap-2">
                 Sign In
               </Link>
             )}
-
-            <Link
-              href="#home"
-              className="text-white py-2 flex items-center gap-2"
-            ></Link>
+            <Link href="#home" className="text-white py-2 flex items-center gap-2"></Link>
           </div>
         </div>
       </nav>
-      <div className="container mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6">
+      <div className="container relative mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6">
         <Input
           type="text"
+          value={searchInput}
+          onChange={handleSearchChange}
           placeholder="Search all phone screens (e.g Tecno, Samsung)"
-          className={cn(
-            "outline-none p-2 w-full md:w-1/2 rounded-md border border-gray-300"
-          )}
+          className={cn("outline-none p-2 w-full md:w-1/2 rounded-md border border-gray-300")}
         />
-        <div className="flex ">
+        {searchInput.trim() !== "" && (
+          <div className="w-full absolute md:top-[100%] z-50  md:w-1/2 bg-white shadow-md rounded-md mt-2">
+            {searchResults.length > 0 ? (
+              <ul>
+                {searchResults.map((result, index) => (
+                  <li key={index} className="p-2 border-b border-gray-300">
+                    {result}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="p-2 text-gray-500">Results not found</div>
+            )}
+          </div>
+        )}
         <div className="flex">
-         <p className="text-gray-800">Products</p> 
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              {" "}
-              <span className="text-2xl">
-                <RiArrowDropDownLine />
-              </span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-gray-800 text-white">
-              <DropdownMenuItem>Tecno</DropdownMenuItem>
-              <DropdownMenuItem>Sasmsung</DropdownMenuItem>
-              <DropdownMenuItem>Itel</DropdownMenuItem>
-              <DropdownMenuItem>Infinix</DropdownMenuItem>
-              <DropdownMenuItem>Nokia</DropdownMenuItem>
-              <DropdownMenuItem>Huawei</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-        <div>
-          {/* links section */}
-        <ul className="flex flex-wrap gap-4">
-          {extraLinks.map((link, index) => (
-            <li
-              key={index}
-              className="text-gray-800 hover:underline hover:cursor-pointer hover:text-gray-600"
-            >
-              {link.title}
-            </li>
-          ))}
-        </ul>
-        </div>
+          <div className="flex">
+            <p className="text-gray-800">Products</p>
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <span className="text-2xl">
+                  <RiArrowDropDownLine />
+                </span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-gray-800 text-white">
+                <DropdownMenuItem>Tecno</DropdownMenuItem>
+                <DropdownMenuItem>Samsung</DropdownMenuItem>
+                <DropdownMenuItem>Itel</DropdownMenuItem>
+                <DropdownMenuItem>Infinix</DropdownMenuItem>
+                <DropdownMenuItem>Nokia</DropdownMenuItem>
+                <DropdownMenuItem>Huawei</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+          <div>
+            {/* links section */}
+            <ul className="flex flex-wrap gap-4">
+              {extraLinks.map((link, index) => (
+                <li key={index} className="text-gray-800 hover:underline hover:cursor-pointer hover:text-gray-600">
+                  {link.title}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
