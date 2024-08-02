@@ -157,7 +157,7 @@ const Navbar: React.FC = () => {
                   <RiArrowDropDownLine />
                 </span>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-gray-800 text-white">
+              <DropdownMenuContent className="bg-gray-800 text-white pl-4 w-52">
                 <DropdownMenuItem>Tecno</DropdownMenuItem>
                 <DropdownMenuItem>Samsung</DropdownMenuItem>
                 <DropdownMenuItem>Itel</DropdownMenuItem>
