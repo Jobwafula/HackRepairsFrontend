@@ -119,14 +119,14 @@ export default function Contact() {
         >
           <div className="p-5">
             <div className="mb-3 p-5">
-              <h1 className="text-2xl mb-3 font-semibold text-gray-500">Our Open Hours</h1>
+              <h1 className="text-2xl mb-3 font-semibold ">Our Open Hours</h1>
               <ul className="list-disc p-5">
                 <li className="leading-loose text-sm">Monday to Friday: 9:00 AM - 5:00 PM</li>
                 <li className="leading-loose text-sm">Saturday: 10:00 AM - 2:00 PM</li>
               </ul>
             </div>
             <div className="p-5">
-              <h1 className="text-2xl mb-3 font-semibold text-gray-500">Contact Us</h1>
+              <h1 className="text-2xl mb-3 font-semibold ">Contact Us</h1>
               <p className="flex text-sm font-semibold leading-loose">
                 <span className="text-button"><IoLocationOutline className="mr-2 h-5 w-5"/></span>Charo Wa Mae, Alongside Pwani University, Mombasa Malindi road.
                 P.O. Box 123 Kilifi, Kenya.
@@ -152,7 +152,7 @@ export default function Contact() {
         >
           <div className="container p-5">
             <div className="mb-4 mt-4">
-              <h1 className="text-2xl capitalize font-semibold text-gray-500">
+              <h1 className="text-2xl capitalize font-semibold ">
                 Book and Schedule a call from our agents
               </h1>
             </div>

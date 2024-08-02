@@ -1,11 +1,10 @@
 'use client'
-
-// components/Navbar.tsx
 import React, { useEffect, useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { cn } from '@/lib/utils';
 import { FiLogOut, FiShoppingCart } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa6";
+import { FaBus } from "react-icons/fa";
 import Link from 'next/link'
 import {
   Popover,
@@ -26,7 +25,7 @@ const Navbar: React.FC = () => {
   const {signout} = useAuth();
   const router = useRouter();
 
-
+// an Array of objects for extra links
   const extraLinks = [
     {
       title: "Products"
@@ -76,7 +75,7 @@ const Navbar: React.FC = () => {
             <a href="/" className="text-white text-xl font-bold md:text-2xl">
               Hack-Repairs
             </a>
-            <div className="md:hidden">
+            <div className="">
               <button type="button" className="text-white focus:outline-none">
                 <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
                   <path d="M4 5h16M4 12h16m-7 7h7"></path>
@@ -87,7 +86,7 @@ const Navbar: React.FC = () => {
           <div className="hidden  md:flex items-center space-x-4">
             
             <Link href="#cart" className="text-white py-2 flex items-center gap-2"><FiShoppingCart />Cart</Link>
-            <Link href="#orders" className="text-white py-2 flex items-center gap-2">Orders</Link>
+            <Link href="#orders" className="text-white py-2 flex items-center gap-2"><FaBus /> Orders</Link>
             {user ? (
               <div >
                 <Popover>
@@ -96,7 +95,7 @@ const Navbar: React.FC = () => {
                 </Popover>
               </div>
             ) : (
-              <Link href="/signin" className="text-white py-2 flex items-center gap-2">
+              <Link href="/signin" className="text-white hover:underline py-2 flex items-center gap-2">
                 <FaRegUser />Sign In
               </Link>
             )}
