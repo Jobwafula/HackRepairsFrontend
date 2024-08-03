@@ -7,6 +7,7 @@ import { FaRegUser } from "react-icons/fa6";
 import { FaBus } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,28 +24,27 @@ import { useAuth } from "@/context/authContext";
 import { useRouter } from "next/navigation";
 
 const Navbar: React.FC = () => {
+  const pathname = usePathname();
   interface User {
     email: string;
     name: string;
   }
   const [user, setUser] = useState<User | null>(null);
   const [searchInput, setSearchInput] = useState("");
-  const [searchResults, setSearchResults] = useState<string[]>([]); // Assuming search results are strings
+  const [searchResults, setSearchResults] = useState<string[]>([]);
   const { signout } = useAuth();
   const router = useRouter();
 
-  // Array of objects for extra links
   const extraLinks = [
-    { title: "Sell With Us" },
-    { title: "About our Products" },
-    { title: "About Us" },
+    { title: "Sell With Us", href: "/sell" },
+    { title: "About our Products", href: "/products" },
+    { title: "About Us", href: "/about" },
+    { title: "Contact Us", href: "/contact" }
   ];
 
   useEffect(() => {
-    // Get user from local storage
     const localUser = localStorage.getItem("user");
 
-    // Check if the localUser exists and parse it if it's not null
     if (localUser) {
       try {
         const parsedUser: User = JSON.parse(localUser);
@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
         console.error("Failed to parse user from localStorage", error);
       }
     } else {
-      setUser(null); // If no user is found in localStorage
+      setUser(null);
     }
 
     console.log("local user", localUser);
@@ -70,7 +70,6 @@ const Navbar: React.FC = () => {
     if (e.target.value.trim() === "") {
       setSearchResults([]);
     } else {
-      // Simulate fetching/searching results
       const results = ["Tecno Screen", "Samsung Screen", "Itel Screen"].filter(
         (item) => item.toLowerCase().includes(e.target.value.toLowerCase())
       );
@@ -95,14 +94,23 @@ const Navbar: React.FC = () => {
             </div>
           </div>
           <div className="flex md:flex items-center space-x-4">
-            <Link href="#cart" className="text-white py-2 flex items-center gap-2">
+            <Link
+              href="/cart"
+              className={`text-white py-2 flex items-center gap-2 ${pathname === '/cart' ? 'active' : ''}`}
+            >
               <FiShoppingCart />
               Cart
             </Link>
-            <Link href="#orders" className="text-white py-2 flex items-center gap-2">
+            <Link
+              href="/orders"
+              className={`text-white py-2 flex items-center gap-2 ${pathname === '/orders' ? 'active' : ''}`}
+            >
               <FaBus /> Orders
             </Link>
-            <Link href="#orders" className="text-white py-2 flex items-center gap-2">
+            <Link
+              href="/profile"
+              className={`text-white py-2 flex items-center gap-2 ${pathname === '/profile' ? 'active' : ''}`}
+            >
               <FaRegUser />
             </Link>
             {user ? (
@@ -117,11 +125,17 @@ const Navbar: React.FC = () => {
                 </Popover>
               </div>
             ) : (
-              <Link href="/signin" className="text-white hidden md:flex hover:underline py-2 items-center gap-2">
+              <Link
+                href="/signin"
+                className={`text-white hidden md:flex hover:underline py-2 items-center gap-2 ${pathname === '/signin' ? 'active' : ''}`}
+              >
                 Sign In
               </Link>
             )}
-            <Link href="#home" className="text-white py-2 flex items-center gap-2"></Link>
+            <Link
+              href="/home"
+              className={`text-white py-2 flex items-center gap-2 ${pathname === '/home' ? 'active' : ''}`}
+            ></Link>
           </div>
         </div>
       </nav>
@@ -131,10 +145,12 @@ const Navbar: React.FC = () => {
           value={searchInput}
           onChange={handleSearchChange}
           placeholder="Search all phone screens (e.g Tecno, Samsung)"
-          className={cn("outline-none p-2 w-full md:w-1/2 rounded-md border border-gray-300")}
+          className={cn(
+            "outline-none p-2 w-full md:w-1/2 rounded-md border border-gray-300"
+          )}
         />
         {searchInput.trim() !== "" && (
-          <div className="w-full absolute md:top-[100%] z-50  md:w-1/2 bg-white shadow-md rounded-md mt-2">
+          <div className="w-full absolute md:top-[100%] z-50 md:w-1/2 bg-white shadow-md rounded-md mt-2">
             {searchResults.length > 0 ? (
               <ul>
                 {searchResults.map((result, index) => (
@@ -148,7 +164,7 @@ const Navbar: React.FC = () => {
             )}
           </div>
         )}
-        <div className="flex">
+        <div className="hidden md:flex">
           <div className="flex">
             <p className="text-gray-800">Products</p>
             <DropdownMenu>
@@ -168,17 +184,25 @@ const Navbar: React.FC = () => {
             </DropdownMenu>
           </div>
           <div>
-            {/* links section */}
             <ul className="flex flex-wrap gap-4">
               {extraLinks.map((link, index) => (
-                <li key={index} className="text-gray-800 hover:underline hover:cursor-pointer hover:text-gray-600">
-                  {link.title}
+                <li
+                  key={index}
+                  className={`text-gray-800 hover:underline hover:cursor-pointer hover:text-gray-600 ${pathname === link.href ? 'active' : ''}`}
+                >
+                  <Link href={link.href}>{link.title}</Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
       </div>
+      <style jsx>{`
+        .active {
+          border-bottom: 2px solid #fff;
+          color: #f9a826;
+        }
+      `}</style>
     </div>
   );
 };
