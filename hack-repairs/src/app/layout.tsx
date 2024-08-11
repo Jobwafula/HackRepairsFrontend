@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html data-theme="cupcake" lang="en">
       <body className={cn('min-h-screen bg-background font-sans antialiased')}>
       <AuthProvider>
         <div>
