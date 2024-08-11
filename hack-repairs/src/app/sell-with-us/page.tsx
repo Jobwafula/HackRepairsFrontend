@@ -1,4 +1,6 @@
 import React from 'react';
+import { TiWorld } from "react-icons/ti";
+import { MdOutlineWatchLater, MdDashboard, MdSecurity, MdSupportAgent } from "react-icons/md";
 
 const SellWithUsPage: React.FC = () => {
   return (
@@ -19,23 +21,38 @@ const SellWithUsPage: React.FC = () => {
       <section className="mb-12">
         <h2 className="text-3xl font-semibold text-center mb-6">Why Sell With Us?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="text-center p-4">
-            <img src="/images/customer-base.png" alt="Customer Base" className="mx-auto mb-4" />
+          {/* Card 1: Large Customer Base */}
+          <div className="text-center flex flex-col justify-center items-center p-4">
+            <h3 className="text-[5rem] text-button font-semibold mb-2">
+              <TiWorld />
+            </h3>
             <h3 className="text-xl font-semibold mb-2">Large Customer Base</h3>
             <p>Access millions of potential customers worldwide.</p>
           </div>
-          <div className="text-center p-4">
-            <img src="/images/seller-dashboard.png" alt="Seller Dashboard" className="mx-auto mb-4" />
+
+          {/* Card 2: Seller Dashboard */}
+          <div className="text-center flex flex-col justify-center items-center p-4">
+            <h3 className="text-[5rem] text-button font-semibold mb-2">
+              <MdDashboard />
+            </h3>
             <h3 className="text-xl font-semibold mb-2">Seller Dashboard</h3>
             <p>Manage your listings with ease using our intuitive dashboard.</p>
           </div>
-          <div className="text-center p-4">
-            <img src="/images/secure-payments.png" alt="Secure Payments" className="mx-auto mb-4" />
+
+          {/* Card 3: Secure Payments */}
+          <div className="text-center flex flex-col justify-center items-center p-4">
+            <h3 className="text-[5rem] text-button font-semibold mb-2">
+              <MdSecurity />
+            </h3>
             <h3 className="text-xl font-semibold mb-2">Secure Payments</h3>
             <p>Receive payments securely through our trusted platform.</p>
           </div>
-          <div className="text-center p-4">
-            <img src="/images/customer-support.png" alt="Customer Support" className="mx-auto mb-4" />
+
+          {/* Card 4: 24/7 Support */}
+          <div className="text-center flex flex-col justify-center items-center p-4">
+            <h3 className="text-[5rem] text-button font-semibold mb-2">
+              <MdSupportAgent />
+            </h3>
             <h3 className="text-xl font-semibold mb-2">24/7 Support</h3>
             <p>Our support team is available around the clock to assist you.</p>
           </div>
@@ -43,7 +60,7 @@ const SellWithUsPage: React.FC = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="mb-12">
+      {/* <section className="mb-12">
         <h2 className="text-3xl font-semibold text-center mb-6">How It Works</h2>
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="flex-1 text-center md:mr-6 mb-6 md:mb-0">
@@ -67,7 +84,7 @@ const SellWithUsPage: React.FC = () => {
             <p>Receive payments directly to your bank account.</p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials Section */}
       <section className="mb-12 bg-gray-100 p-6 rounded-lg shadow-lg">
