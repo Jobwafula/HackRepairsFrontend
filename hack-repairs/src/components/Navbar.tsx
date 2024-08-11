@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
   const router = useRouter();
 
   const extraLinks = [
-    { title: "Sell With Us", href: "/sell" },
+    { title: "Sell With Us", href: "/sell-with-us" },
     { title: "About our Products", href: "/products" },
     { title: "About Us", href: "/about" },
     { title: "Contact Us", href: "/contact" }
