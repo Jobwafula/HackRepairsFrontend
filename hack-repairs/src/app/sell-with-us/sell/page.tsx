@@ -1,4 +1,12 @@
-const Sell =()=>{
+import SellWithusForm from "@/components/forms/SellWithusForm";
+import react from "react";
 
-}
-export default Sell
+const Sell: React.FC = () => {
+  return(
+  <div>
+    <SellWithusForm />
+  </div>
+)
+  
+};
+export default Sell;

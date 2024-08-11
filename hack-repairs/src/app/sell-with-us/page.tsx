@@ -1,6 +1,7 @@
 import React from 'react';
 import { TiWorld } from "react-icons/ti";
 import { MdOutlineWatchLater, MdDashboard, MdSecurity, MdSupportAgent } from "react-icons/md";
+import Link from 'next/link';
 
 const SellWithUsPage: React.FC = () => {
   return (
@@ -113,7 +114,7 @@ const SellWithUsPage: React.FC = () => {
         <h2 className="text-3xl font-semibold mb-4">Ready to Start Selling?</h2>
         <p className="text-lg mb-6">Sign up today and take your business to the next level.</p>
         <button className="bg-button text-white px-6 py-3 rounded-md text-lg font-semibold shadow-lg">
-          Get Started
+          <Link href='/sell-with-us/sell'> Get Started</Link>
         </button>
       </section>
     </div>
