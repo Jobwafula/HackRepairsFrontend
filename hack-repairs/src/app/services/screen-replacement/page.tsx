@@ -76,7 +76,7 @@ const ScreenReplacement: React.FC = () => {
   return (
     <div className="flex w-full">
       {/* Filter Section */}
-      <section className="p-4 w-[20%] bg-gray-100">
+      <section className="p-4 w-[20%]">
         <div className="flex flex-col gap-4 mb-4">
           {/* Brand Filter */}
           <div>
@@ -119,7 +119,7 @@ const ScreenReplacement: React.FC = () => {
       
       <section className="w-[80%]">
         {/* Search Section */}
-        <section className="p-4 bg-gray-100">
+        <section className="p-4 ">
           <Input
             placeholder="Search phone screen type"
             value={searchTerm}
