@@ -40,6 +40,7 @@ const ScreenReplacement: React.FC = () => {
 
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 5000]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value.toLowerCase());
@@ -58,19 +59,26 @@ const ScreenReplacement: React.FC = () => {
     );
   };
 
+  const handlePriceRangeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(event.target.value);
+    setPriceRange((prevRange) => [prevRange[0], value]);
+  };
+
   const filteredRepairs = availableRepairs.filter((repair) => {
     const matchesSearchTerm = repair.title.toLowerCase().includes(searchTerm);
     const matchesBrand =
       selectedBrands.length === 0 || selectedBrands.includes(repair.title);
-    return matchesSearchTerm && matchesBrand;
+    const matchesPrice =
+      repair.newPrice >= priceRange[0] && repair.newPrice <= priceRange[1];
+    return matchesSearchTerm && matchesBrand && matchesPrice;
   });
 
   return (
     <div className="flex w-full">
       {/* Filter Section */}
-
       <section className="p-4 w-[20%] bg-gray-100">
-        <div className="flex gap-4 mb-4">
+        <div className="flex flex-col gap-4 mb-4">
+          {/* Brand Filter */}
           <div>
             <h3 className="text-lg font-semibold mb-2">Filter by Brand</h3>
             <div className="space-y-2">
@@ -88,9 +96,28 @@ const ScreenReplacement: React.FC = () => {
               ))}
             </div>
           </div>
+          
+          {/* Price Filter */}
+          <div>
+            <h3 className="text-lg font-semibold mb-2">Filter by Price</h3>
+            <div className="space-y-2">
+              <label className="flex items-center">
+                <span className="text-gray-700 mr-2">Max Price: Ksh {priceRange[1]}</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="5000"
+                  value={priceRange[1]}
+                  onChange={handlePriceRangeChange}
+                  className="w-full"
+                />
+              </label>
+            </div>
+          </div>
         </div>
       </section>
-      <section className='w-[80%]'>
+      
+      <section className="w-[80%]">
         {/* Search Section */}
         <section className="p-4 bg-gray-100">
           <Input
@@ -122,15 +149,13 @@ const ScreenReplacement: React.FC = () => {
                     </h2>
                     <button
                       onClick={() => handleBooking(repair.title)}
-                      className="mt-2  px-4 py-2 bg-button text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                      className="mt-2 px-4 py-2 bg-button text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                     >
                       Repair Screen
                     </button>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm line-through">
-                      Ksh {repair.oldPrice}
-                    </p>
+                    <p className="text-sm line-through">Ksh {repair.oldPrice}</p>
                     <p className="text-lg font-bold">Ksh {repair.newPrice}</p>
                   </div>
                 </div>
