@@ -1,7 +1,19 @@
-// components/Footer.tsx
-import React from 'react';
 
+import React from 'react';
 const Footer: React.FC = () => {
+
+  // our services
+  const services = [
+    {
+      title:'Screen Repairs'
+    },
+    {
+      title:'Screen Replacement'
+    },
+    {
+      title:'Phone Accessories'
+    }
+  ]
   return (
     <footer className="bg-gray-800 text-white py-10">
       <div className="container mx-auto px-6 md:px-12">
@@ -15,15 +27,14 @@ const Footer: React.FC = () => {
           <div className="w-full md:w-1/3 px-6 mb-6 md:mb-0">
             <h5 className="text-xl font-bold mb-4">Services</h5>
             <ul className="list-none">
-              <li className="mb-2">
-                <a href="#services" className="text-gray-400 hover:text-white transition">Screen Repairs</a>
-              </li>
-              <li className="mb-2">
-                <a href="#services" className="text-gray-400 hover:text-white transition">Replacement Screens</a>
-              </li>
-              <li className="mb-2">
-                <a href="#services" className="text-gray-400 hover:text-white transition">Phone Accessories</a>
-              </li>
+              {services.map((link,index)=>{
+                return (
+                  <li className="mb-2">
+                  <a href="#services" className="text-gray-400 hover:text-white transition">{link.title}</a>
+                </li>
+                )
+              })}
+             
             </ul>
           </div>
           <div className="w-full md:w-1/3 px-6">

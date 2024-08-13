@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 const formSchema = z.object({
   name: z.string().min(2).max(50),
   business_name: z.string().min(2).max(50),
-  phone: z.string().min(2).max(50),
+  phone: z.number().min(2).max(50),
   business_location: z.string().min(2).max(50),
   email: z.string().email().max(50),
   product: z.string().min(2).max(50),
@@ -29,7 +29,7 @@ export default function SellWithusForm() {
     defaultValues: {
       name: "",
       business_name: "",
-      phone: "",
+      phone:NaN,
       business_location: "",
       email: "",
       product: "",
