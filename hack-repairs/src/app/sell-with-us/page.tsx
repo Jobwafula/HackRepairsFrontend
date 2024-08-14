@@ -2,9 +2,13 @@ import React from 'react';
 import { TiWorld } from "react-icons/ti";
 import { MdOutlineWatchLater, MdDashboard, MdSecurity, MdSupportAgent } from "react-icons/md";
 import Link from 'next/link';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const SellWithUsPage: React.FC = () => {
   return (
+    <>
+    <Navbar />
     <div className="container mx-auto p-6">
       {/* Hero Section */}
       <section className="relative mb-12">
@@ -118,6 +122,8 @@ const SellWithUsPage: React.FC = () => {
         </button>
       </section>
     </div>
+    <Footer />
+    </>
   );
 };
 

@@ -22,6 +22,7 @@ import {
 import { Button } from "./ui/button";
 import { useAuth } from "@/context/authContext";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -82,9 +83,10 @@ const Navbar: React.FC = () => {
       <nav className="bg-gray-800 text-white">
         <div className="container mx-auto px-6 py-3 flex justify-between md:flex md:justify-between md:items-center">
           <div className="flex justify-between items-center">
-            <a href="/" className="text-white text-xl font-bold md:text-2xl">
+            <Image width={30} height={30} className="rounded-full" src='/hack-repairs.jpg' alt='logo' />
+            < p className="text-white text-xl ml-2  md:text-2xl font-semibold">
               Hack-Repairs
-            </a>
+            </p>
             <div className="">
               <button type="button" className="text-white focus:outline-none">
                 <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">

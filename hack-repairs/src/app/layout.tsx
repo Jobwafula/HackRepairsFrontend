@@ -26,13 +26,11 @@ export default function RootLayout({
     <html data-theme="cupcake" lang="en">
       <body className={cn('min-h-screen bg-background font-sans antialiased')}>
       <AuthProvider>
-        <div>
-          <Navbar/>
-        </div>
+        
         <div>
           {children}
         </div>
-        <Footer />
+       
 
       </AuthProvider>
 

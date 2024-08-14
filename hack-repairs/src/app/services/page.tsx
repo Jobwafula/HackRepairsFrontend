@@ -1,7 +1,11 @@
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import ServicesCard from "@/components/ServicesCard";
 
 const Services = () => {
   return (
+    <>
+    <Navbar />
     <div className="container mx-auto p-6">
       {/* hero section */}
       <section className="relative mb-12">
@@ -22,6 +26,8 @@ const Services = () => {
         <ServicesCard title="screen replament" img="/repair.png" link='/services/screen-replacement' />
       </section>
     </div>
+    <Footer />
+    </>
   );
 };
 export default Services;

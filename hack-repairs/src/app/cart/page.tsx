@@ -8,6 +8,8 @@ interface CartItem {
   price: number;
   quantity: number;
 }
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const initialCartItems: CartItem[] = [
   {
@@ -46,6 +48,8 @@ const Cart = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
 
@@ -105,6 +109,8 @@ const Cart = () => {
         </button>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

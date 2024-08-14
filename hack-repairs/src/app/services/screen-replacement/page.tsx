@@ -1,4 +1,6 @@
 "use client";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
@@ -76,6 +78,8 @@ const ScreenReplacement: React.FC = () => {
   });
 
   return (
+    <>
+    <Navbar />
     <div className="flex w-full">
       {/* Filter Section */}
       <section className="p-4 w-[20%]">
@@ -167,6 +171,8 @@ const ScreenReplacement: React.FC = () => {
         </section>
       </section>
     </div>
+    <Footer />
+    </>
   );
 };
 

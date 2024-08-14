@@ -10,11 +10,12 @@ import SpecialOffers from "@/components/SpecialOffers";
 import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
 
+
 export default function Home() {
   return (
     
            <div className="">
-            {/* <Navbar /> */}
+             <Navbar /> 
             <Hero />
             <Categories />
             {/* <SpecialOffers /> */}
@@ -24,7 +25,7 @@ export default function Home() {
             <OurPartners />
             <FAQ />
             <Contact />
-          {/* <Footer /> */}
+          <Footer /> 
            </div>
 
         
