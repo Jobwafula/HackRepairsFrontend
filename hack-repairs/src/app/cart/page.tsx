@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-
+import {Link} from 'next/link'
 interface CartItem {
   id: number;
   title: string;
@@ -101,7 +101,7 @@ const Cart = () => {
         </div>
 
         <button className="mt-6 px-6 py-3 bg-button text-white rounded-lg hover:bg-green-700">
-          Proceed to Checkout
+         <Link href='/checkout'>Proceed to Checkout</Link> 
         </button>
       </div>
     </div>
