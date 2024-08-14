@@ -132,8 +132,8 @@ const RepairDetail = ({ params }: RepairDetailProps) => {
       </DialogDescription>
     </DialogHeader>
     
-   <div className='flex justify-between capitalize'> <button className="bg-button hover:bg-green-800 text-white p-2 rounded">View Cart and checkout</button>
-    <button className="border border-bg-button p-2 rounded">
+   <div className='flex justify-between capitalize'> <button className="bg-button hover:bg-green-800 text-white p-2 rounded"><Link href='/cart'>View Cart and checkout</Link></button>
+    <button className="border  border-button p-2 rounded">
    <Link href='/services/screen-replacement'>Continue browsing</Link>  </button>
     </div>
 
