@@ -2,6 +2,7 @@
 
 import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface Repair {
   title: string;
@@ -45,9 +46,10 @@ const ScreenReplacement: React.FC = () => {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value.toLowerCase());
   };
+  const router = useRouter();
 
   const handleBooking = (title: string) => {
-    console.log(`Book service for ${title}`);
+    router.push(`/brand/${title.toLowerCase()}`);
   };
 
   const handleBrandChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -76,7 +78,7 @@ const ScreenReplacement: React.FC = () => {
   return (
     <div className="flex w-full">
       {/* Filter Section */}
-      <section className="p-4 w-[20%] bg-gray-100">
+      <section className="p-4 w-[20%]">
         <div className="flex flex-col gap-4 mb-4">
           {/* Brand Filter */}
           <div>
@@ -119,7 +121,7 @@ const ScreenReplacement: React.FC = () => {
       
       <section className="w-[80%]">
         {/* Search Section */}
-        <section className="p-4 bg-gray-100">
+        <section className="p-4 ">
           <Input
             placeholder="Search phone screen type"
             value={searchTerm}
@@ -149,7 +151,7 @@ const ScreenReplacement: React.FC = () => {
                     </h2>
                     <button
                       onClick={() => handleBooking(repair.title)}
-                      className="mt-2 px-4 py-2 bg-button text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                      className="mt-2 px-4 py-2 font-bold bg-button text-white rounded-lg hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                     >
                       Repair Screen
                     </button>
