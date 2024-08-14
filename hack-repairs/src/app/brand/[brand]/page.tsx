@@ -1,6 +1,16 @@
 'use client'
 import { notFound } from "next/navigation";
 import { useState } from "react";
+import { SiTicktick } from "react-icons/si";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import Link from "next/link";
 
 interface RepairDetailProps {
   params: {
@@ -108,10 +118,30 @@ const RepairDetail = ({ params }: RepairDetailProps) => {
               Total Price: Ksh {repairDetail.newPrice * quantity}
             </p>
           </div>
-
-          <button className="mt-4 px-6 py-3 bg-button text-white rounded-lg hover:bg-green-700">
+<Dialog>
+          <DialogTrigger> <button className="mt-4 px-6 py-3 bg-button text-white rounded-lg hover:bg-green-700">
             Book Now
           </button>
+          </DialogTrigger>
+          <DialogContent>
+    <DialogHeader>
+      <DialogTitle className="text-center text-button text-3xl"><SiTicktick /></DialogTitle>
+      <h1>Service added to cart successfully</h1>
+      <DialogDescription>
+        Do you want to continue browsing for more screen repair services or go to cart?
+      </DialogDescription>
+    </DialogHeader>
+    
+   <div className='flex justify-between capitalize'> <button className="bg-button hover:bg-green-800 text-white p-2 rounded">View Cart and checkout</button>
+    <button className="border border-bg-button p-2 rounded">
+   <Link href='/services/screen-replacement'>Continue browsing</Link>  </button>
+    </div>
+
+    
+    
+    
+  </DialogContent>
+  </Dialog>
         </div>
       </div>
     </div>
