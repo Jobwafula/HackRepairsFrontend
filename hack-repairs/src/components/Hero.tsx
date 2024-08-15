@@ -27,6 +27,7 @@ const Hero: React.FC = () => {
             alt="Phone Repair"
             blurDataURL="data:..."
             placeholder="blur" 
+            objectFit="cover"
             priority
             className="w-full h-full"  
           />
