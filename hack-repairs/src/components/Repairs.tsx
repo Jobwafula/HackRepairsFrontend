@@ -42,7 +42,7 @@ const Repairs = () => {
   ];
 
   return (
-    <div className="mx-8 my-8">
+    <div className="ml-0 md:ml-8 mx-8 md:mx-0 my-8">
       {/* Available Repairs Section */}
       <h1 className='text-2xl font-bold capitalize'>Repair Your Screen Now !!</h1>
       <section className="p-4">
@@ -53,8 +53,8 @@ const Repairs = () => {
               className="bg-white w-full relative border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
             >
               <Image
-              width={500}
-              height={500}
+              width={400}
+              height={400}
               objectFit="cover"
                 className=""
                 src={repair.img}
