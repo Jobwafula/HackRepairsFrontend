@@ -3,6 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import {useState,useEffect} from 'react'
 import { motion, useAnimation } from "framer-motion";
+import Image from 'next/image'
 const categories = [
   { id: 1, name: 'Tecno', image: '/categories/tecno.png' },
   { id: 2, name: 'Samsung', image: '/categories/samsung.png' },
@@ -61,16 +62,23 @@ const Categories = () => {
         variants={typingAnimation}
         initial="hidden"
         animate={controls}
-        custom={20} // Adjust this value based on the length of your text
+        custom={20}
       >
       Shop By category
       </motion.h1>
       {/* cards */}
       <div className='grid grid-cols-2 md:mx-[4rem] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4'>
         {categories.map(category => (
-          <div key={category.id} onClick={() => handleCategoryClick(category.name)} className='border transition-transform duration-500 ease-in-out hover:scale-105 w-48 h-48 relative p-4 '>
-            <img src={category.image} alt={category.name} className='   w-[80%] h-[80%  ] object-cover mb-4 rounded-md' />
+          <div key={category.id} onClick={() => handleCategoryClick(category.name)} className='transition-transform duration-500 ease-in-out hover:scale-105 w-48 h-48 relative p-4 '>
+            <div className='border p-4 rounded-full flex items-center justify-center'>
+            <Image
+            width={200}
+            height={300}
             
+             src={category.image}
+              alt={category.name} 
+             className='w-[80%] h-[80%] object-cover mb-4 rounded-md' />
+            </div>
             <h2 className=' text-xl font-semibold capitalize'>{category.name}</h2>
           </div>
         ))}
