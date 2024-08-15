@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 interface Repair {
@@ -45,14 +46,17 @@ const Repairs = () => {
       {/* Available Repairs Section */}
       <h1 className='text-2xl font-bold capitalize'>Repair Your Screen Now !!</h1>
       <section className="p-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="flex flex-col md:flex-row  gap-2">
           {availableRepairs.map((repair, index) => (
             <div
               key={index}
-              className="bg-white relative border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
+              className="bg-white w-full relative border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
             >
-              <img
-                className="w-full h-auto object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+              <Image
+              width={500}
+              height={500}
+              objectFit="cover"
+                className=""
                 src={repair.img}
                 alt={repair.title}
               />
@@ -77,7 +81,7 @@ const Repairs = () => {
             </div>
           ))}
         </div>
-        <div className="mt-8 md:w-[14%] bg-[#003300] hover:bg-green-800 transition duration-300 p-4 text-white py-2 px-6 rounded-full text-lg">
+        <div className="mt-8 md:w-[20%] bg-[#003300] hover:bg-green-800 transition duration-300 p-4 text-white py-2 px-6 rounded-full text-lg">
             <Link href="/services/screen-replacement" className=" ">
               Explore More
             </Link>
