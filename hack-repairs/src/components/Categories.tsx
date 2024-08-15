@@ -1,6 +1,8 @@
 'use client'
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import {useState,useEffect} from 'react'
+import { motion, useAnimation } from "framer-motion";
 const categories = [
   { id: 1, name: 'Tecno', image: '/categories/tecno.png' },
   { id: 2, name: 'Samsung', image: '/categories/samsung.png' },
@@ -11,9 +13,38 @@ const categories = [
   { id: 7, name: 'Xiaomi', image: '/categories/tecno.png' },
   { id: 8, name: 'Oppo', image: '/categories/tecno.png' },
 ];
+const typingAnimation = {
+  hidden: { width: 0 },
+  visible: (i: number) => ({
+    width: `${i}ch`,
+    transition: {
+      duration: i * 0.1,
+      ease: "linear",
+    },
+  }),
+};
+
 
 const Categories = () => {
   const router = useRouter();
+  const controls = useAnimation();
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const element = document.getElementById("animatedText");
+      if (element) {
+        const { top } = element.getBoundingClientRect();
+        if (top <= window.innerHeight && !hasAnimated) {
+          controls.start("visible");
+          setHasAnimated(true);
+        }
+      }
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [controls, hasAnimated]);
 
   const handleCategoryClick = (categoryName: string) => {
     // Navigate to the category page
@@ -22,7 +53,18 @@ const Categories = () => {
 
   return (
     <div className=' mx-8 my-8  '>
-      <h1 className='text-2xl font-bold capitalize'>Shop By Category</h1>
+     
+       {/* Animated Heading */}
+       <motion.h1
+        id="animatedText"
+        className="text-2xl font-bold capitalize overflow-hidden whitespace-nowrap"
+        variants={typingAnimation}
+        initial="hidden"
+        animate={controls}
+        custom={20} // Adjust this value based on the length of your text
+      >
+      Shop By category
+      </motion.h1>
       {/* cards */}
       <div className='grid grid-cols-2 md:mx-[4rem] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4'>
         {categories.map(category => (

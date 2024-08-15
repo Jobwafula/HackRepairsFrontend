@@ -2,14 +2,29 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import {useState,useEffect} from 'react'
+import { motion, useAnimation } from "framer-motion";
 interface Repair {
   title: string;
   img: string;
   oldPrice: number;
   newPrice: number;
 }
+
+const typingAnimation = {
+  hidden: { width: 0 },
+  visible: (i: number) => ({
+    width: `${i}ch`,
+    transition: {
+      duration: i * 0.1,
+      ease: "linear",
+    },
+  }),
+};
 const Repairs = () => {
   const router = useRouter();
+  const controls = useAnimation();
+  const [hasAnimated, setHasAnimated] = useState(false);
   const handleBooking = (title: string) => {
     router.push(`/brand/${title.toLowerCase()}`);
   };
@@ -40,11 +55,36 @@ const Repairs = () => {
       newPrice: 2000,
     },
   ];
+  useEffect(() => {
+    const handleScroll = () => {
+      const element = document.getElementById("animatedText");
+      if (element) {
+        const { top } = element.getBoundingClientRect();
+        if (top <= window.innerHeight && !hasAnimated) {
+          controls.start("visible");
+          setHasAnimated(true);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [controls, hasAnimated]);
 
   return (
     <div className="ml-0 md:ml-8 mx-8 md:mx-0 my-8">
       {/* Available Repairs Section */}
-      <h1 className='text-2xl font-bold capitalize'>Repair Your Screen Now !!</h1>
+      {/* Animated Heading */}
+      <motion.h1
+        id="animatedText"
+        className="text-2xl font-bold capitalize overflow-hidden whitespace-nowrap"
+        variants={typingAnimation}
+        initial="hidden"
+        animate={controls}
+        custom={20} // Adjust this value based on the length of your text
+      >
+        Repair Your Screen Now !!
+      </motion.h1>
       <section className="p-4">
         <div className="flex flex-col md:flex-row  gap-2">
           {availableRepairs.map((repair, index) => (
