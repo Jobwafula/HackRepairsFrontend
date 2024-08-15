@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {useState,useEffect} from 'react'
 import { motion, useAnimation } from "framer-motion";
+import { FaArrowRightLong } from "react-icons/fa6";
 interface Repair {
   title: string;
   img: string;
@@ -122,8 +123,9 @@ const Repairs = () => {
           ))}
         </div>
         <div className="mt-8 md:w-[20%] bg-[#003300] hover:bg-green-800 transition duration-300 p-4 text-white py-2 px-6 rounded-full text-lg">
-            <Link href="/services/screen-replacement" className=" ">
-              Explore More
+            <Link href="/services/screen-replacement" className="flex items-center justify-center gap-2 ">
+             <span>Explore More</span> 
+              <span className="animate-ping"><FaArrowRightLong /></span>
             </Link>
           </div>
       </section>
