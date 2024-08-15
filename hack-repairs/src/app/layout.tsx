@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { AuthProvider } from "@/context/authContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { inter } from "@/ui/font";
+
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -24,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html data-theme="cupcake" lang="en">
-      <body className={cn('min-h-screen bg-background font-sans antialiased')}>
+      <body className={`${inter.className} antialiased`}>
       <AuthProvider>
         
         <div>

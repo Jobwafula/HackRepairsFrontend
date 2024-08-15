@@ -11,6 +11,9 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
 
 interface RepairDetailProps {
   params: {
@@ -70,6 +73,8 @@ const RepairDetail = ({ params }: RepairDetailProps) => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="container mx-auto py-8">
       <div className="flex flex-col md:flex-row gap-8">
         {/* Image Section */}
@@ -145,6 +150,8 @@ const RepairDetail = ({ params }: RepairDetailProps) => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

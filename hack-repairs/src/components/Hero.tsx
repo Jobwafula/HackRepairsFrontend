@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 const Hero: React.FC = () => {
   return (
-    <div className="h-screen relative bg-gray-100">
+    <div className="h-screen relative ">
       <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 items-center gap-8 h-full">
         <div className="text-center flex flex-col justify-center items-center lg:items-start z-50 lg:text-left h-full">
           <h2 className="text-3xl font-bold text-white  md:text-black md:text-6xl">
@@ -19,12 +20,17 @@ const Hero: React.FC = () => {
           </div>
         </div>
         <div className="h-screen absolute md:relative inset-0 flex items-center justify-center md:justify-end">
-          <img
-            src="/repair.png"
+          <Image
+          width={800}
+          height={800}
+            src="/heroim.png"
             alt="Phone Repair"
-            className="mx-auto lg:ml-auto lg:mr-20 w-full h-full max-w-md animate-rotate"
+            blurDataURL="data:..."
+            placeholder="blur" 
+            priority
+            className="w-full h-full"  
           />
-          <div className="absolute bg-black inset-0 bg-opacity-75 md:hidden"></div>
+          <div className="absolute bg-black inset-0 bg-opacity-50 md:hidden"></div>
         </div>
       </div>
     </div>

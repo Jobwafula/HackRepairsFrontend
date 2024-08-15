@@ -6,9 +6,15 @@ import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import Navbar from "@/components/Navbar";
 import OurPartners from "@/components/OurPartners";
+import Repairs from "@/components/Repairs";
 import SpecialOffers from "@/components/SpecialOffers";
 import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title:'Hack Repairs | Home',
+  description: 'Hack Repairs Home Page',
+}
 
 
 export default function Home() {
@@ -18,9 +24,10 @@ export default function Home() {
              <Navbar /> 
             <Hero />
             <Categories />
+            <Repairs />
             {/* <SpecialOffers /> */}
             {/* <HowItWorks /> */}
-            <Testimonials />
+            {/* <Testimonials /> */}
             
             <OurPartners />
             <FAQ />

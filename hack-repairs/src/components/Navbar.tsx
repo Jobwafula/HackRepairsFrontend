@@ -202,7 +202,9 @@ const Navbar: React.FC = () => {
       <style jsx>{`
         .active {
           border-bottom: 2px solid #fff;
-          color: #f9a826;
+          color: #003300;
+          text-decoration:underline;
+          font:bold
         }
       `}</style>
     </div>

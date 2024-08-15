@@ -18,7 +18,7 @@ const Categories = () => {
       {/* cards */}
       <div className='grid grid-cols-2 md:mx-[4rem] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4'>
         {categories.map(category => (
-          <div key={category.id} className='border w-48 h-48 relative p-4 '>
+          <div key={category.id} className='border transition-transform duration-500 ease-in-out hover:scale-105 w-48 h-48 relative p-4 '>
             <img src={category.image} alt={category.name} className='   w-[80%] h-[80%  ] object-cover mb-4 rounded-md' />
             
             <h2 className=' text-xl font-semibold capitalize'>{category.name}</h2>

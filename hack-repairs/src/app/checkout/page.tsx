@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { 
     FormLabel, 
 } from "@/components/ui/form";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 interface CartItem {
   id: number;
@@ -56,6 +58,8 @@ const Checkout = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <FormProvider {...methods}>
       <div className="container mx-auto py-8">
         <h1 className="text-3xl font-bold mb-6">Checkout</h1>
@@ -145,6 +149,8 @@ const Checkout = () => {
         </div>
       </div>
     </FormProvider>
+    <Footer />
+    </>
   );
 };
 
