@@ -7,7 +7,8 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
-const metadata: Metadata = {
+import ScreenRepaircard from "@/components/cards/ScreenRepaircard";
+ const metadata: Metadata = {
   title: {
     absolute:'Screen Replacement -Hack Repairs'
   },
@@ -147,37 +148,7 @@ const ScreenReplacement: React.FC = () => {
         <section className="p-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {filteredRepairs.map((repair, index) => (
-              <div
-                key={index}
-                className="bg-white relative border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
-              >
-                <Image
-                width={200}
-                height={300}
-                objectFit="cover"
-                  className=" "
-                  src={repair.img}
-                  alt={repair.title}
-                />
-                
-                <div className="p-4 flex text-gray-800 justify-between items-center  w-full ">
-                  <div>
-                    <h2 className="text-lg font-semibold ">
-                      {repair.title}
-                    </h2>
-                    <button
-                      onClick={() => handleBooking(repair.title)}
-                      className="mt-2 px-4 py-2 font-bold bg-button text-white rounded-lg hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
-                    >
-                      Repair 
-                    </button>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm line-through">Ksh {repair.oldPrice}</p>
-                    <p className="text-lg font-bold">Ksh {repair.newPrice}</p>
-                  </div>
-                </div>
-              </div>
+              <ScreenRepaircard repair={repair} index={index} handleBooking={handleBooking} />
             ))}
           </div>
         </section>

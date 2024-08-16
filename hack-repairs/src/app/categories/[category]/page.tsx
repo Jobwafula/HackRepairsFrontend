@@ -1,158 +1,162 @@
-'use client'
-import { notFound } from "next/navigation";
-import { useState } from "react";
-import { SiTicktick } from "react-icons/si";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import Link from "next/link";
-import Navbar from "@/components/Navbar";
+"use client";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
-
-interface RepairDetailProps {
-  params: {
-    category: string;
-  };
+import { Input } from "@/components/ui/input";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import type { Metadata } from "next";
+import Image from "next/image";
+import ScreenSalesCard from "@/components/cards/ScreenSalesCard";
+ const metadata: Metadata = {
+  title: {
+    absolute:'Screen Replacement -Hack saless'
+  },
+  description: 'Hack saless  screen replacement Services',
 }
 
-const repairsData = {
-  tecno: {
-    title: "Tecno",
-    description: "High-quality Tecno phone screen replacement services.",
-    img: "/screens/tecno/tecnos.jpeg",
-    oldPrice: 2000,
-    newPrice: 1800,
-  },
-  samsung: {
-    title: "Samsung",
-    description: "Professional Samsung phone screen replacement services.",
-    img: "/screens/samsung/samsung.jpg",
-    oldPrice: 2500,
-    newPrice: 2300,
-  },
-  itel: {
-    title: "Itel",
-    description: "Affordable Itel phone screen replacement services.",
-    img: "/screens/itel/itel.jpg",
-    oldPrice: 1500,
-    newPrice: 1400,
-  },
-  xiaomi: {
-    title: "Xiaomi",
-    description: "Reliable Xiaomi phone screen replacement services.",
-    img: "/screens/xiaomi/xiaomi.jpg",
-    oldPrice: 2200,
-    newPrice: 2000,
-  },
-};
 
-const RepairDetail = ({ params }: RepairDetailProps) => {
-  const { category} = params;
+interface Sales {
+  title: string;
+  img: string;
+  oldPrice: number;
+  newPrice: number;
+}
 
-  const repairDetail = repairsData[category.toLowerCase() as keyof typeof repairsData];
+const ScreenReplacement: React.FC = () => {
+  const availablesaless: Sales[] = [
+    {
+      title: "Tecno",
+      img: "/screens/tecno/tecnoscreen.png",
+      oldPrice: 2000,
+      newPrice: 1800,
+    },
+    {
+      title: "Samsung",
+      img: "/screens/tecno/tecnoscreen.png",
+      oldPrice: 2500,
+      newPrice: 2300,
+    },
+    {
+      title: "Itel",
+      img: "/screens/tecno/tecnoscreen.png",
+      oldPrice: 1500,
+      newPrice: 1400,
+    },
+    {
+      title: "Xiaomi",
+      img: "/screens/tecno/tecnoscreen.png",
+      oldPrice: 2200,
+      newPrice: 2000,
+    },
+  ];
 
-  if (!repairDetail) {
-    return notFound(); // Handle case where brand is not found
-  }
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 5000]);
 
-  const [quantity, setQuantity] = useState(1); // State to track quantity
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value.toLowerCase());
+  };
+  const router = useRouter();
 
-  // Handlers for increment and decrement
-  const handleIncrement = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+  const handleBooking = (title: string) => {
+    router.push(`/brand/${title.toLowerCase()}`);
   };
 
-  const handleDecrement = () => {
-    setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
+  const handleBrandChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const brand = event.target.value;
+    setSelectedBrands((prevSelected) =>
+      prevSelected.includes(brand)
+        ? prevSelected.filter((b) => b !== brand)
+        : [...prevSelected, brand]
+    );
   };
+
+  const handlePriceRangeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(event.target.value);
+    setPriceRange((prevRange) => [prevRange[0], value]);
+  };
+
+  const filteredsaless = availablesaless.filter((sales) => {
+    const matchesSearchTerm = sales.title.toLowerCase().includes(searchTerm);
+    const matchesBrand =
+      selectedBrands.length === 0 || selectedBrands.includes(sales.title);
+    const matchesPrice =
+      sales.newPrice >= priceRange[0] && sales.newPrice <= priceRange[1];
+    return matchesSearchTerm && matchesBrand && matchesPrice;
+  });
 
   return (
     <>
     <Navbar />
-    <div className="container mx-auto py-8">
-      <div className="flex flex-col md:flex-row gap-8">
-        {/* Image Section */}
-        <div className="md:w-1/2">
-          <img
-            src={repairDetail.img}
-            alt={repairDetail.title}
-            className="w-full h-auto object-cover rounded-lg"
+    <div className="flex w-full">
+      {/* Filter Section */}
+      <section className="p-4 w-[20%]">
+        <div className="flex flex-col gap-4 mb-4">
+          {/* Brand Filter */}
+          <div>
+            <h3 className="text-lg font-semibold mb-2">Filter by Category</h3>
+            <div className="space-y-2">
+              {["Tecno", "Samsung", "Itel", "Xiaomi"].map((brand) => (
+                <label key={brand} className="flex items-center">
+                  <input
+                    type="checkbox"
+                    value={brand}
+                    checked={selectedBrands.includes(brand)}
+                    onChange={handleBrandChange}
+                    className="form-checkbox h-4 w-4 text-button"
+                  />
+                  <span className="ml-2 text-gray-700">{brand}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+          
+          {/* Price Filter */}
+          <div>
+            <h3 className="text-lg font-semibold mb-2">Filter by Price</h3>
+            <div className="space-y-2">
+              <label className="flex items-center">
+                <span className="text-gray-700 mr-2">Max Price: Ksh {priceRange[1]}</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="5000"
+                  value={priceRange[1]}
+                  onChange={handlePriceRangeChange}
+                  className="w-full"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section className="w-[80%]">
+        {/* Search Section */}
+        <section className="p-4 ">
+          <Input
+            placeholder="Search phone screen type"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="w-full max-w-xs border-gray-300 rounded-lg"
           />
-        </div>
+        </section>
 
-        {/* Details Section */}
-        <div className="md:w-1/2">
-          <h1 className="text-3xl font-bold mb-4">
-            {repairDetail.title} Screen Replacement
-          </h1>
-          <p className="text-gray-600 mb-4">{repairDetail.description}</p>
-
-          <div className="mb-4">
-            <p className="text-lg text-gray-500 line-through">
-              Ksh {repairDetail.oldPrice}
-            </p>
-            <p className="text-2xl font-bold">Ksh {repairDetail.newPrice}</p>
+        {/* Available saless Section */}
+        <section className="p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {filteredsaless.map((sales, index) => (
+              <ScreenSalesCard sales={sales} index={index} handleBooking={handleBooking} />
+            ))}
           </div>
-
-          {/* Quantity Section */}
-          <div className="mb-4 flex items-center space-x-4">
-            <button
-              onClick={handleDecrement}
-              className="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400"
-            >
-              -
-            </button>
-            <span className="text-xl">{quantity}</span>
-            <button
-              onClick={handleIncrement}
-              className="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400"
-            >
-              +
-            </button>
-          </div>
-
-          {/* Total Price */}
-          <div className="mb-4">
-            <p className="text-xl font-semibold">
-              Total Price: Ksh {repairDetail.newPrice * quantity}
-            </p>
-          </div>
-<Dialog>
-          <DialogTrigger> <button className="mt-4 px-6 py-3 bg-button text-white rounded-lg hover:bg-green-700">
-            Book Now
-          </button>
-          </DialogTrigger>
-          <DialogContent>
-    <DialogHeader>
-      <DialogTitle className="text-center text-button text-3xl"><SiTicktick /></DialogTitle>
-      <h1>Service added to cart successfully</h1>
-      <DialogDescription>
-        Do you want to continue browsing for more screen repair services or go to cart?
-      </DialogDescription>
-    </DialogHeader>
-    
-   <div className='flex justify-between capitalize'> <button className="bg-button hover:bg-green-800 text-white p-2 rounded"><Link href='/cart'>View Cart and checkout</Link></button>
-    <button className="border  border-button p-2 rounded">
-   <Link href='/services/screen-replacement'>Continue browsing</Link>  </button>
-    </div>
-
-    
-    
-    
-  </DialogContent>
-  </Dialog>
-        </div>
-      </div>
+        </section>
+      </section>
     </div>
     <Footer />
     </>
   );
 };
 
-export default RepairDetail;
+export default ScreenReplacement;

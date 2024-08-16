@@ -30,6 +30,7 @@ const Categories = () => {
   const router = useRouter();
   const controls = useAnimation();
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,6 +49,7 @@ const Categories = () => {
   }, [controls, hasAnimated]);
 
   const handleCategoryClick = (categoryName: string) => {
+    setSelectedCategory(categoryName);
     // Navigate to the category page
     router.push(`/categories/${categoryName.toLowerCase()}`);
   };
