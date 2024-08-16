@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google"; // Import Roboto font
+import { Roboto } from "next/font/google"; 
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { AuthProvider } from "@/context/authContext";
@@ -10,13 +10,19 @@ import { inter } from "@/ui/font";
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "500", "700"], // Add desired font weights
+  weight: ["400", "500", "700"], 
   variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
-  title: "Hack Repairs",
+  title: {
+    default:'Hack Repairs',
+    template:'$s -Hack Repairs'
+  },
   description: "An ecommerce platform offering best phone screen sales and repair services",
+  twitter:{
+    card:'summary_large_image'
+  }
 };
 
 export default function RootLayout({

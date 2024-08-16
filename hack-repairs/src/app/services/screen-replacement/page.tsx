@@ -5,6 +5,14 @@ import Navbar from "@/components/Navbar";
 import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import type { Metadata } from "next";
+const metadata: Metadata = {
+  title: {
+    absolute:'Screen Replacement -Hack Repairs'
+  },
+  description: 'Hack Repairs  screen replacement Services',
+}
+
 
 interface Repair {
   title: string;

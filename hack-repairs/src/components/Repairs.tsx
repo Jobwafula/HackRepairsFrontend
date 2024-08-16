@@ -75,7 +75,6 @@ const Repairs = () => {
   return (
     <div className="ml-0 md:ml-8 mx-8 md:mx-0 my-8">
       {/* Available Repairs Section */}
-      {/* Animated Heading */}
       <motion.h1
         id="animatedText"
         className="text-2xl font-bold capitalize overflow-hidden whitespace-nowrap"
@@ -101,7 +100,7 @@ const Repairs = () => {
                 src={repair.img}
                 alt={repair.title}
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out hover:bg-opacity-50"></div>
+              {/* <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out hover:bg-opacity-50"></div> */}
               <div className="p-4 flex justify-between items-center absolute w-full bottom-0 gap-8 text-white z-50">
                 <div>
                   <h2 className="text-lg font-semibold text-white">

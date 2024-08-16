@@ -13,7 +13,12 @@ import {
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
 
+ const metadata: Metadata = {
+  title:"Brands",
+  description: "An ecommerce platform offering best phone screen sales and repair services",
+};
 
 interface RepairDetailProps {
   params: {

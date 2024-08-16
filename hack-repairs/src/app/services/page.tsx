@@ -1,6 +1,15 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ServicesCard from "@/components/ServicesCard";
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: {
+    absolute:'Services -Hack Repairs'
+  },
+  description: 'Hack Repairs Services',
+}
+
 
 const Services = () => {
   return (
