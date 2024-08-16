@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
 const metadata: Metadata = {
   title: {
     absolute:'Screen Replacement -Hack Repairs'
@@ -25,25 +26,25 @@ const ScreenReplacement: React.FC = () => {
   const availableRepairs: Repair[] = [
     {
       title: "Tecno",
-      img: "/screens/tecno/tecnos.jpeg",
+      img: "/screens/tecno/tecnoscreen.png",
       oldPrice: 2000,
       newPrice: 1800,
     },
     {
       title: "Samsung",
-      img: "/screens/tecno/tecnos.jpeg",
+      img: "/screens/tecno/tecnoscreen.png",
       oldPrice: 2500,
       newPrice: 2300,
     },
     {
       title: "Itel",
-      img: "/screens/tecno/tecnos.jpeg",
+      img: "/screens/tecno/tecnoscreen.png",
       oldPrice: 1500,
       newPrice: 1400,
     },
     {
       title: "Xiaomi",
-      img: "/screens/tecno/tecnos.jpeg",
+      img: "/screens/tecno/tecnoscreen.png",
       oldPrice: 2200,
       newPrice: 2000,
     },
@@ -150,22 +151,25 @@ const ScreenReplacement: React.FC = () => {
                 key={index}
                 className="bg-white relative border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
               >
-                <img
-                  className="w-full h-auto object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+                <Image
+                width={200}
+                height={300}
+                objectFit="cover"
+                  className=" "
                   src={repair.img}
                   alt={repair.title}
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out hover:bg-opacity-50"></div>
-                <div className="p-4 flex justify-between items-center absolute w-full bottom-0 gap-8 text-white z-50">
+                
+                <div className="p-4 flex text-gray-800 justify-between items-center  w-full ">
                   <div>
-                    <h2 className="text-lg font-semibold text-white">
+                    <h2 className="text-lg font-semibold ">
                       {repair.title}
                     </h2>
                     <button
                       onClick={() => handleBooking(repair.title)}
                       className="mt-2 px-4 py-2 font-bold bg-button text-white rounded-lg hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                     >
-                      Repair Screen
+                      Repair 
                     </button>
                   </div>
                   <div className="text-right">

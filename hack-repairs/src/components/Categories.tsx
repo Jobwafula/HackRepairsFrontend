@@ -69,8 +69,8 @@ const Categories = () => {
       {/* cards */}
       <div className='grid grid-cols-2 md:mx-[4rem] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4'>
         {categories.map(category => (
-          <div key={category.id} onClick={() => handleCategoryClick(category.name)} className='transition-transform duration-500 ease-in-out hover:scale-105 w-48 h-48 relative p-4 '>
-            <div className='border p-4 rounded-full flex items-center justify-center'>
+          <div key={category.id} onClick={() => handleCategoryClick(category.name)} className='transition-transform duration-500 ease-in-out hover:scale-105 w-48 hover:cursor-pointer h-48 relative p-4 '>
+            <div className='border p-4  rounded-full flex items-center justify-center'>
             <Image
             width={200}
             height={300}
