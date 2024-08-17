@@ -10,9 +10,9 @@ import Image from "next/image";
 import ScreenSalesCard from "@/components/cards/ScreenSalesCard";
  const metadata: Metadata = {
   title: {
-    absolute:'Screen Replacement -Hack saless'
+    absolute:'Screen Replacement -Hack Repairs'
   },
-  description: 'Hack saless  screen replacement Services',
+  description: 'Hack Repairs  screen replacement Services',
 }
 
 
@@ -24,7 +24,7 @@ interface Sales {
 }
 
 const ScreenReplacement: React.FC = () => {
-  const availablesaless: Sales[] = [
+  const availableRepairs: Sales[] = [
     {
       title: "Tecno",
       img: "/screens/tecno/tecnoscreen.png",
@@ -61,7 +61,7 @@ const ScreenReplacement: React.FC = () => {
   const router = useRouter();
 
   const handleBooking = (title: string) => {
-    router.push(`/brand/${title.toLowerCase()}`);
+    router.push(`/category/${title.toLowerCase()}`);
   };
 
   const handleBrandChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,12 +78,12 @@ const ScreenReplacement: React.FC = () => {
     setPriceRange((prevRange) => [prevRange[0], value]);
   };
 
-  const filteredsaless = availablesaless.filter((sales) => {
-    const matchesSearchTerm = sales.title.toLowerCase().includes(searchTerm);
+  const filteredRepairs = availableRepairs.filter((repair) => {
+    const matchesSearchTerm = repair.title.toLowerCase().includes(searchTerm);
     const matchesBrand =
-      selectedBrands.length === 0 || selectedBrands.includes(sales.title);
+      selectedBrands.length === 0 || selectedBrands.includes(repair.title);
     const matchesPrice =
-      sales.newPrice >= priceRange[0] && sales.newPrice <= priceRange[1];
+      repair.newPrice >= priceRange[0] && repair.newPrice <= priceRange[1];
     return matchesSearchTerm && matchesBrand && matchesPrice;
   });
 
@@ -144,10 +144,10 @@ const ScreenReplacement: React.FC = () => {
           />
         </section>
 
-        {/* Available saless Section */}
+        {/* Available Repairs Section */}
         <section className="p-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            {filteredsaless.map((sales, index) => (
+            {filteredRepairs.map((sales, index) => (
               <ScreenSalesCard sales={sales} index={index} handleBooking={handleBooking} />
             ))}
           </div>

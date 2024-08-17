@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import {useState,useEffect} from 'react'
 import { motion, useAnimation } from "framer-motion";
 import Image from 'next/image'
+
+//should  fetch categories -api
 const categories = [
   { id: 1, name: 'Tecno', image: '/categories/tecno.png' },
   { id: 2, name: 'Samsung', image: '/categories/samsung.png' },
