@@ -1,5 +1,5 @@
 'use client'; // Ensure this component is rendered on the client side
-import { authenticate } from '@/lib/action';
+
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/authContext';
