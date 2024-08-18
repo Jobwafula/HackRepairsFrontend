@@ -19,7 +19,7 @@ const Signup = () => {
       alert('Passwords do not match');
       return;
     }
-    signup(email, password, () => router.push('/'));
+  
   };
 
   const handleGoogleSignIn = () => {
@@ -94,3 +94,7 @@ const Signup = () => {
 };
 
 export default Signup;
+function signinWithGoogle(arg0: () => void) {
+  throw new Error('Function not implemented.');
+}
+
