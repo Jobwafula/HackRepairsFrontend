@@ -11,6 +11,7 @@ import SpecialOffers from "@/components/SpecialOffers";
 import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
 import type { Metadata } from 'next'
+import WhyHR from "@/components/home/WhyHR";
 export const metadata: Metadata = {
   title:'Home - Hack Repairs',
   description: 'Hack Repairs Home Page',
@@ -23,6 +24,7 @@ export default function Home() {
            <div className="">
              <Navbar /> 
             <Hero />
+            <WhyHR />
             <Categories />
             <Repairs />
             {/* <SpecialOffers /> */}
