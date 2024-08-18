@@ -11,7 +11,7 @@ const Loading: React.FC = () => {
           width={100}
           height={100}
           alt="Logo"
-          className=""
+          className="rounded-full"
           priority
         />
         <div className="absolute inset-0 flex items-center justify-center">

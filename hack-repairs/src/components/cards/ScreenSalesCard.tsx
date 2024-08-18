@@ -27,6 +27,7 @@ const ScreenSalesCard: React.FC<ScreensalesCardProps> = ({
         src={sales.img}
         alt={sales.title}
         placeholder="blur"
+        blurDataURL='....'
       />
 
       <div className="p-2 flex text-gray-800 justify-between items-center  w-full ">

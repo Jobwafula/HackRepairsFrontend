@@ -26,73 +26,48 @@ const SellWithUsPage: React.FC = () => {
       </section>
 
       {/* Why Sell With Us Section */}
-      <section className="mb-12">
+      <section className="mb-12 bg-gray-100">
         <h2 className="text-3xl font-semibold text-center mb-6">Why Sell With Us?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Card 1: Large Customer Base */}
           <div className="text-center flex flex-col justify-center items-center p-4">
-            <h3 className="text-[5rem] text-button font-semibold mb-2">
+            <h3 className="text-[3rem] text-button font-semibold mb-2">
               <TiWorld />
             </h3>
-            <h3 className="text-xl font-semibold mb-2">Large Customer Base</h3>
-            <p>Access millions of potential customers worldwide.</p>
+            <h3 className="text-lg font-semibold mb-2">Large Customer Base</h3>
+            <p className='text-sm'>Access millions of potential customers worldwide.</p>
           </div>
 
           {/* Card 2: Seller Dashboard */}
-          <div className="text-center flex flex-col justify-center items-center p-4">
-            <h3 className="text-[5rem] text-button font-semibold mb-2">
+          <div className="text-center  flex flex-col justify-center items-center p-4">
+            <h3 className="text-[3rem] text-button font-semibold mb-2">
               <MdDashboard />
             </h3>
-            <h3 className="text-xl font-semibold mb-2">Seller Dashboard</h3>
-            <p>Manage your listings with ease using our intuitive dashboard.</p>
+            <h3 className="text-lg font-semibold mb-2">Seller Dashboard</h3>
+            <p className='text-sm'>Manage your listings with ease using our intuitive dashboard.</p>
           </div>
 
           {/* Card 3: Secure Payments */}
           <div className="text-center flex flex-col justify-center items-center p-4">
-            <h3 className="text-[5rem] text-button font-semibold mb-2">
+            <h3 className="text-[3rem] text-button font-semibold mb-2">
               <MdSecurity />
             </h3>
-            <h3 className="text-xl font-semibold mb-2">Secure Payments</h3>
-            <p>Receive payments securely through our trusted platform.</p>
+            <h3 className="text-lg font-semibold mb-2">Secure Payments</h3>
+            <p className='text-sm'>Receive payments securely through our trusted platform.</p>
           </div>
 
           {/* Card 4: 24/7 Support */}
           <div className="text-center flex flex-col justify-center items-center p-4">
-            <h3 className="text-[5rem] text-button font-semibold mb-2">
+            <h3 className="text-[3rem] text-button font-semibold mb-2">
               <MdSupportAgent />
             </h3>
-            <h3 className="text-xl font-semibold mb-2">24/7 Support</h3>
-            <p>Our support team is available around the clock to assist you.</p>
+            <h3 className="text-lg font-semibold mb-2">24/7 Support</h3>
+            <p className='text-sm'>Our support team is available around the clock to assist you.</p>
           </div>
         </div>
       </section>
 
-      {/* How It Works Section */}
-      {/* <section className="mb-12">
-        <h2 className="text-3xl font-semibold text-center mb-6">How It Works</h2>
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="flex-1 text-center md:mr-6 mb-6 md:mb-0">
-            <img src="/images/signup.png" alt="Sign Up" className="mx-auto mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Sign Up</h3>
-            <p>Create your seller account with just a few clicks.</p>
-          </div>
-          <div className="flex-1 text-center md:mr-6 mb-6 md:mb-0">
-            <img src="/images/list-products.png" alt="List Products" className="mx-auto mb-4" />
-            <h3 className="text-xl font-semibold mb-2">List Your Products</h3>
-            <p>Add your products to our marketplace and reach a global audience.</p>
-          </div>
-          <div className="flex-1 text-center md:mr-6 mb-6 md:mb-0">
-            <img src="/images/manage-orders.png" alt="Manage Orders" className="mx-auto mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Manage Orders</h3>
-            <p>Keep track of your orders and inventory effortlessly.</p>
-          </div>
-          <div className="flex-1 text-center">
-            <img src="/images/get-paid.png" alt="Get Paid" className="mx-auto mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Get Paid</h3>
-            <p>Receive payments directly to your bank account.</p>
-          </div>
-        </div>
-      </section> */}
+      
 
       {/* Testimonials Section */}
       <section className="mb-12 bg-gray-100 p-6 rounded-lg shadow-lg">
