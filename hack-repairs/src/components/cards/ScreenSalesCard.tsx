@@ -4,6 +4,7 @@ interface Sales {
   title: string;
   oldPrice?: number;
   newPrice: number;
+
 }
 interface ScreensalesCardProps {
   sales: Sales;
@@ -23,10 +24,9 @@ const ScreenSalesCard: React.FC<ScreensalesCardProps> = ({
       <Image
         width={200}
         height={200}
-        objectFit="cover"
-        className=" "
         src={sales.img}
         alt={sales.title}
+        placeholder="blur"
       />
 
       <div className="p-2 flex text-gray-800 justify-between items-center  w-full ">

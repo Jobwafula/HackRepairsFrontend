@@ -1,4 +1,5 @@
 
+import Link from 'next/link';
 import React from 'react';
 const Footer: React.FC = () => {
 
@@ -29,8 +30,8 @@ const Footer: React.FC = () => {
             <ul className="list-none">
               {services.map((link,index)=>{
                 return (
-                  <li className="mb-2">
-                  <a href="#services" className="text-gray-400 hover:text-white transition">{link.title}</a>
+                  <li className="mb-2" key={index}>
+                  <Link href="#services" className="text-gray-400 hover:text-white transition">{link.title}</Link>
                 </li>
                 )
               })}

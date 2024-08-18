@@ -189,7 +189,7 @@ const Navbar: React.FC = () => {
             <ul className="flex flex-wrap gap-4">
               {extraLinks.map((link, index) => (
                 <li
-                  key={index}
+                  key={link.title}
                   className={`text-gray-800 hover:underline hover:cursor-pointer hover:text-gray-600 ${pathname === link.href ? 'active' : ''}`}
                 >
                   <Link href={link.href}>{link.title}</Link>

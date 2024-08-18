@@ -12,7 +12,6 @@ interface Repair {
   oldPrice: number;
   newPrice: number;
 }
-
 const typingAnimation = {
   hidden: { width: 0 },
   visible: (i: number) => ({
