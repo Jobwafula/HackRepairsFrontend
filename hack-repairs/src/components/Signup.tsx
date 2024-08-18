@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/context/authContext';
+
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc'; // Import Google icon
 
 const Signup = () => {
-  const { signup, signinWithGoogle } = useAuth(); // Add signinWithGoogle function in the context
+   // Add signinWithGoogle function in the context
   const router = useRouter();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
