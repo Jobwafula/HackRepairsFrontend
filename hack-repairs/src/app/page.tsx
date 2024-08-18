@@ -12,6 +12,7 @@ import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
 import type { Metadata } from 'next'
 import WhyHR from "@/components/home/WhyHR";
+import Brands from "@/components/Brands";
 export const metadata: Metadata = {
   title:'Home - Hack Repairs',
   description: 'Hack Repairs Home Page',
@@ -34,6 +35,9 @@ export default function Home() {
             <OurPartners />
             {/* <FAQ /> */}
             <Contact />
+            <Brands />
+            
+          
           <Footer /> 
            </div>
 

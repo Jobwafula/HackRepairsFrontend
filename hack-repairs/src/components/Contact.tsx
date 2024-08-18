@@ -114,7 +114,7 @@ export default function Contact() {
           }}
           initial="hidden"
           animate="visible"
-          transition={{ duration: 1, delay: 0.25 }}
+          transition={{ duration: 1, delay: 0.0 }}
           className="flex flex-wrap -mx-4"
         >
           <div className="p-5">
