@@ -14,6 +14,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
+import Image from "next/image";
 
  const metadata: Metadata = {
   title:"Brands",
@@ -58,6 +59,8 @@ const repairsData = {
 };
 
 const RepairDetail = ({ params }: RepairDetailProps) => {
+  
+  const [quantity, setQuantity] = useState(1); // State to track quantity
   const { brand } = params;
 
   const repairDetail = repairsData[brand.toLowerCase() as keyof typeof repairsData];
@@ -66,7 +69,6 @@ const RepairDetail = ({ params }: RepairDetailProps) => {
     return notFound(); // Handle case where brand is not found
   }
 
-  const [quantity, setQuantity] = useState(1); // State to track quantity
 
   // Handlers for increment and decrement
   const handleIncrement = () => {
@@ -84,7 +86,9 @@ const RepairDetail = ({ params }: RepairDetailProps) => {
       <div className="flex flex-col md:flex-row gap-8">
         {/* Image Section */}
         <div className="md:w-1/2">
-          <img
+          <Image
+          width={500}
+          height={500}
             src={repairDetail.img}
             alt={repairDetail.title}
             className="w-full h-auto object-cover rounded-lg"

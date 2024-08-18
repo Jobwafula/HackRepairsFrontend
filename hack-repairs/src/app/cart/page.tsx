@@ -10,6 +10,7 @@ interface CartItem {
 }
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import Image from "next/image";
 
 const initialCartItems: CartItem[] = [
   {
@@ -60,7 +61,9 @@ const Cart = () => {
           <div>
             {cartItems.map((item) => (
               <div key={item.id} className="flex items-center border-b border-gray-200 py-4">
-                <img
+                <Image
+                width={200}
+                height={200}
                   src={item.img}
                   alt={item.title}
                   className="w-24 h-24 object-cover rounded-lg mr-4"

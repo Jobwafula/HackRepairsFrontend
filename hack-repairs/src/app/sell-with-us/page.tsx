@@ -4,6 +4,7 @@ import { MdOutlineWatchLater, MdDashboard, MdSecurity, MdSupportAgent } from "re
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Image from 'next/image'
 
 const SellWithUsPage: React.FC = () => {
   return (
@@ -12,7 +13,9 @@ const SellWithUsPage: React.FC = () => {
     <div className="container mx-auto p-6">
       {/* Hero Section */}
       <section className="relative mb-12">
-        <img
+        <Image
+        width={600}
+        height={500}
           src="/images/sell-with-us-hero.jpg"
           alt="Sell with us"
           className="w-full h-96 object-cover rounded-lg shadow-lg"
@@ -96,17 +99,17 @@ const SellWithUsPage: React.FC = () => {
         <h2 className="text-3xl font-semibold text-center mb-6">What Our Sellers Say</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <p className="mb-4">"Selling on this platform has boosted my business. The process is seamless and efficient."</p>
+            <p className="mb-4">&quot;Selling on this platform has boosted my business. The process is seamless and efficient.&quot;</p>
             <h4 className="text-xl font-semibold">John Doe</h4>
             <p className="text-sm text-gray-600">Electronics Seller</p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <p className="mb-4">"The customer support team is always ready to help. Highly recommend!"</p>
+            <p className="mb-4">&quot;The customer support team is always ready to help. Highly recommend!&quot;</p>
             <h4 className="text-xl font-semibold">Jane Smith</h4>
             <p className="text-sm text-gray-600">Fashion Designer</p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-md">
-            <p className="mb-4">"I’ve reached more customers than I ever imagined. It’s been a game-changer for my business."</p>
+            <p className="mb-4">&quot;I&apos;ve reached more customers than I ever imagined. It&apos;s been a game-changer for my business.&quot;</p>
             <h4 className="text-xl font-semibold">Michael Johnson</h4>
             <p className="text-sm text-gray-600">Handmade Crafts</p>
           </div>

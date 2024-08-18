@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/form";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 interface CartItem {
   id: number;
@@ -124,7 +125,9 @@ const Checkout = () => {
               <div>
                 {cartItems.map((item) => (
                   <div key={item.id} className="flex items-center border-b border-gray-200 py-4">
-                    <img
+                    <Image
+                    width={100}
+                    height={100}
                       src={item.img}
                       alt={item.title}
                       className="w-24 h-24 object-cover rounded-lg mr-4"

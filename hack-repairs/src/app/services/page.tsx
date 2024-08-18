@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ServicesCard from "@/components/ServicesCard";
 import type { Metadata } from 'next'
+import Image from "next/image";
  
 export const metadata: Metadata = {
   title: {
@@ -18,7 +19,9 @@ const Services = () => {
       <div className="container mx-auto p-6">
         {/* hero section */}
         <section className="relative mb-12">
-          <img
+          <Image
+          width={600}
+          height={500}
             src="/images/sell-with-us-hero.jpg"
             alt="Sell with us"
             className="w-full h-96 object-cover rounded-lg shadow-lg"

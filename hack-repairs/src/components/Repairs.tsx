@@ -88,8 +88,9 @@ const Repairs = () => {
       <section className="p-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {availableRepairs.map((repair, index) => (
+            <div key={index}>
             <ScreenRepairCard repair={repair} index={index} handleBooking={handleBooking} />
-          ))}
+          </div>))}
         </div>
         <div className="mt-8 md:w-[20%] bg-[#003300] hover:bg-green-800 transition duration-300 p-4 text-white py-2 px-6 rounded-full text-lg">
             <Link href="/services/screen-replacement" className="flex items-center justify-center gap-2 ">

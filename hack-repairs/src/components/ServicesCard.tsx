@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 // service props types
@@ -17,7 +18,7 @@ export default function ServicesCard({title,img,link}:serviceprops) {
     }
   return (
     <div className="w-full md:w-[30%] transition-transform duration-500 ease-in-out hover:scale-105  hover:bg-button hover:text-white hover:cursor-pointer bg-white border border-gray-200 rounded-lg shadow-md" onClick={handleClick}>
-      <img className="w-full h-48 object-cover rounded-t-lg" src={img} alt={title} />
+      <Image width={500} height={500} className="w-full h-48 object-cover rounded-t-lg" src={img} alt={title} />
       <div className="p-4  hover:text-white">
         <h2 className="text-lg  hover:text-white  font-bold">{title}</h2>
       </div>

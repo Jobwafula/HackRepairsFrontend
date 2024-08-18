@@ -5,12 +5,6 @@ import { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 
-//should  fetch categories -api
-// -get-client - /get/ api
-// -post-admin -/post/api
-//-delete - /delete/api
-// patch - /pa
-
 interface category {
   name:string,
   id:number,

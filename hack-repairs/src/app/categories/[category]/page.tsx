@@ -148,7 +148,10 @@ const ScreenReplacement: React.FC = () => {
         <section className="p-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {filteredRepairs.map((sales, index) => (
+
+              <div  key={index}>
               <ScreenSalesCard sales={sales} index={index} handleBooking={handleBooking} />
+              </div>
             ))}
           </div>
         </section>

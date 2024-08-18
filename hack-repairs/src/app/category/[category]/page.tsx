@@ -71,6 +71,7 @@ const salesData:SalesData = {
 
 const RepairDetail = ({ params }: SalesDetailProps) => {
   const { category} = params;
+  const [quantity, setQuantity] = useState(1); // State to track quantity
 
   const repairDetail = salesData[category.toLowerCase() as keyof typeof salesData];
 
@@ -78,7 +79,7 @@ const RepairDetail = ({ params }: SalesDetailProps) => {
         return notFound(); // Handle case where brand is not found
   }
 
-  const [quantity, setQuantity] = useState(1); // State to track quantity
+  
 
   // Handlers for increment and decrement
   const handleIncrement = () => {
