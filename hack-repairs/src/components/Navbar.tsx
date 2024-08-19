@@ -23,6 +23,7 @@ import { Button } from "./ui/button";
 import { useAuth } from "@/context/authContext";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { CiSearch } from "react-icons/ci";
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -40,7 +41,7 @@ const Navbar: React.FC = () => {
     { title: "Sell With Us", href: "/sell-with-us" },
     { title: "About our Products", href: "/products" },
     { title: "About Us", href: "/about" },
-    { title: "Contact Us", href: "/contact" }
+    { title: "Contact Us", href: "/contact" },
   ];
 
   useEffect(() => {
@@ -83,8 +84,14 @@ const Navbar: React.FC = () => {
       <nav className="bg-gray-800 text-white">
         <div className="container mx-auto px-6 py-3 flex justify-between md:flex md:justify-between md:items-center">
           <div className="flex justify-between items-center">
-            <Image width={30} height={30} className="rounded-full" src='/hack-repairs.jpg' alt='logo' />
-            < p className="text-white text-xl ml-2  md:text-2xl font-semibold">
+            <Image
+              width={30}
+              height={30}
+              className="rounded-full"
+              src="/hack-repairs.jpg"
+              alt="logo"
+            />
+            <p className="text-white text-xl ml-2  md:text-2xl font-semibold">
               Hack-Repairs
             </p>
             <div className="">
@@ -98,20 +105,26 @@ const Navbar: React.FC = () => {
           <div className="flex md:flex items-center space-x-4">
             <Link
               href="/cart"
-              className={`text-white py-2 flex items-center gap-2 ${pathname === '/cart' ? 'active' : ''}`}
+              className={`text-white py-2 flex items-center gap-2 ${
+                pathname === "/cart" ? "active" : ""
+              }`}
             >
               <FiShoppingCart />
               Cart
             </Link>
             <Link
               href="/orders"
-              className={`text-white py-2 flex items-center gap-2 ${pathname === '/orders' ? 'active' : ''}`}
+              className={`text-white py-2 flex items-center gap-2 ${
+                pathname === "/orders" ? "active" : ""
+              }`}
             >
               <FaBus /> Orders
             </Link>
             <Link
               href="/profile"
-              className={`text-white py-2 flex items-center gap-2 ${pathname === '/profile' ? 'active' : ''}`}
+              className={`text-white py-2 flex items-center gap-2 ${
+                pathname === "/profile" ? "active" : ""
+              }`}
             >
               <FaRegUser />
             </Link>
@@ -129,28 +142,39 @@ const Navbar: React.FC = () => {
             ) : (
               <Link
                 href="/signin"
-                className={`text-white hidden md:flex hover:underline py-2 items-center gap-2 ${pathname === '/signin' ? 'active' : ''}`}
+                className={`text-white hidden md:flex hover:underline py-2 items-center gap-2 ${
+                  pathname === "/signin" ? "active" : ""
+                }`}
               >
                 Sign In
               </Link>
             )}
             <Link
               href="/home"
-              className={`text-white py-2 flex items-center gap-2 ${pathname === '/home' ? 'active' : ''}`}
+              className={`text-white py-2 flex items-center gap-2 ${
+                pathname === "/home" ? "active" : ""
+              }`}
             ></Link>
           </div>
         </div>
       </nav>
       <div className="container relative mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-6">
-        <Input
-          type="text"
-          value={searchInput}
-          onChange={handleSearchChange}
-          placeholder="Search all phone screens (e.g Tecno, Samsung)"
-          className={cn(
-            "outline-none p-2 w-full md:w-1/2 rounded-md border border-gray-300"
-          )}
-        />
+      <div className="relative w-full md:w-1/2">
+  <Input
+    type="text"
+    value={searchInput}
+    onChange={handleSearchChange}
+    placeholder="Search all phone screens (e.g Tecno, Samsung)"
+    className={cn(
+      "border border-gray-300 outline-none focus:outline-none focus:ring-2 focus:ring-green-500 rounded-md w-full h-full pl-4 pr-12 text-gray-700 placeholder-gray-500" // Adjust padding and colors
+    )}
+  />
+  <p className="absolute inset-y-0 right-0 bg-green-800 p-2 rounded-r-md flex items-center pointer-events-none">
+    <CiSearch className="text-white" />
+  </p>
+</div>
+
+
         {searchInput.trim() !== "" && (
           <div className="w-full absolute md:top-[100%] z-50 md:w-1/2 bg-white shadow-md rounded-md mt-2">
             {searchResults.length > 0 ? (
@@ -190,7 +214,9 @@ const Navbar: React.FC = () => {
               {extraLinks.map((link, index) => (
                 <li
                   key={link.title}
-                  className={`text-gray-800 hover:underline hover:cursor-pointer hover:text-gray-600 ${pathname === link.href ? 'active' : ''}`}
+                  className={`text-gray-800 hover:underline hover:cursor-pointer hover:text-gray-600 ${
+                    pathname === link.href ? "active" : ""
+                  }`}
                 >
                   <Link href={link.href}>{link.title}</Link>
                 </li>
@@ -203,8 +229,8 @@ const Navbar: React.FC = () => {
         .active {
           border-bottom: 2px solid #fff;
           color: #003300;
-          text-decoration:underline;
-          font:bold
+          text-decoration: underline;
+          font: bold;
         }
       `}</style>
     </div>

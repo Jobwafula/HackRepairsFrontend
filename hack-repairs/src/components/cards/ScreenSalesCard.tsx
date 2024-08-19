@@ -21,6 +21,7 @@ const ScreenSalesCard: React.FC<ScreensalesCardProps> = ({
       key={index}
       className="bg-white w-48 md:w-52 h-auto relative border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
     >
+      <div className="bg-button absolute left-2 top-2 text-white h-[1rem] p-4 w-[2rem]"><p>2% off</p></div>
       <Image
         width={200}
         height={200}
