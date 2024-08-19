@@ -2,7 +2,7 @@ import Image from "next/image";
 interface Sales {
   img: string;
   title: string;
-  oldPrice?: number;
+  oldPrice: number;
   newPrice: number;
 
 }
@@ -16,12 +16,17 @@ const ScreenSalesCard: React.FC<ScreensalesCardProps> = ({
   index,
   handleBooking,
 }) => {
+  // calculate discount
+  const discount = ()=>{
+    let discount = sales.oldPrice - sales.newPrice
+    return Math.floor(discount/sales.oldPrice*100)
+  }
   return (
     <div
       key={index}
       className="bg-white w-48 md:w-52 h-auto relative border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
     >
-      <div className="bg-button absolute left-2 top-2 text-white h-[1rem] p-4 w-[2rem]"><p>2% off</p></div>
+        <div className="bg-button absolute right-2 z-50 top-2 text-white h-[2rem] flex items-center justify-center  w-[4rem]"><p className='text-sm animate-bounce text-center'>{discount()}% off</p></div>
       <Image
         width={200}
         height={200}
