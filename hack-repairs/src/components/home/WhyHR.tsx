@@ -8,17 +8,17 @@ import {
 const WhyHR = () => {
   const data = [
     {
-      title: "Large Customer Base",
+      title: "Delivery in 24hrs",
       icon: <TiWorld />,
 
-      description: "Access millions of potential customers worldwide.",
+      description: "HackRepairs products for you.",
     },
     {
-      title: "Seller dashboard",
+      title: "Quality Quarantee",
       icon: <MdDashboard />,
 
       description:
-        "manage you listings with ease using our intuitive dashboard",
+        "Quality checked by our team",
     },
     {
       title: "secure payments",
@@ -41,9 +41,9 @@ const WhyHR = () => {
           return (
             <div key={item.title}>
               <div className="text-center flex flex-col justify-center items-center p-4">
-                <h3 className="text-[3rem] text-button font-semibold mb-2">
+                <span className="bg-white flex items-center justify-center"><h3 className="text-[3rem]  text-button font-semibold mb-2">
                   {item.icon}
-                </h3>
+                </h3></span>
                 <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                 <p className="text-sm">{item.description}</p>
               </div>

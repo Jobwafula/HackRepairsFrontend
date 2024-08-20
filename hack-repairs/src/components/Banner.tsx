@@ -4,16 +4,16 @@ import { IoLocationOutline } from "react-icons/io5";
 const Banner = () => {
   return (
     <div className=" bg-gradient-to-r from-green-800 via-button to-button relative grid grid-cols-3 md:flex items-center gap-2 text-white h-48 w-full">
-      <div className="  md:w-full  ml-4 pt-4 flex flex-col">
-        <h1 className="text-2xl md:text-4xl capitalize">We offer free delivery services</h1>
-        <p className="md:ml-[30%] text-lg md:text-2xl flex items-center  font-semibold leading-loose">
+      <div className="  md:w-full  ml-4 p-2 md:p-0 md:pt-4 flex flex-col">
+        <h1 className="text-lg md:text-4xl capitalize">We offer free delivery services</h1>
+        <p className="md:ml-[30%]  md:text-2xl flex items-center  font-semibold leading-loose">
           <span className="text-white ">
             <IoLocationOutline className="mr-2 h-5 w-5" />
           </span>
           <span>Kilifi Township</span>
         </p>
       </div>
-      <div className="md:absolute sm:text-sm z-10 right-2 md:left-[50%]">
+      <div className="md:absolute text-[10px] md:text-sm z-10 right-2 md:left-[50%]">
         <p>Are you within Kilifi Town?</p>
         <ul className="list-disc pl-[1rem]">
           <li>

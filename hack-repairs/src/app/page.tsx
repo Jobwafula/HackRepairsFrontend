@@ -14,6 +14,7 @@ import type { Metadata } from "next";
 import WhyHR from "@/components/home/WhyHR";
 import Brands from "@/components/Brands";
 import Banner from "@/components/Banner";
+import OtherProducts from "@/components/home/OtherProducts";
 export const metadata: Metadata = {
   title: "Home - Hack Repairs",
   description: "Hack Repairs Home Page",
@@ -28,9 +29,10 @@ export default function Home() {
       <Categories />
       <Banner />
       <Repairs />
+      <OtherProducts />
       
 
-      <OurPartners />
+      {/* <OurPartners /> */}
 
       <Contact />
       <Brands />

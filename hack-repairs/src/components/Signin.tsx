@@ -1,5 +1,4 @@
-'use client'; // Ensure this component is rendered on the client side
-
+'use client'; 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/authContext';
@@ -7,10 +6,9 @@ import Link from 'next/link';
 
 import { useFormState, useFormStatus } from 'react-dom'
  
-import { FcGoogle } from 'react-icons/fc'; // Import Google icon
+import { FcGoogle } from 'react-icons/fc'; 
 
 const Signin = () => {
-
 
   return (
     <div className='bg-black h-screen absolute top-0 left-0 w-full bg-opacity-50 flex justify-center items-center'>
@@ -23,8 +21,6 @@ const Signin = () => {
             <input
               id="email"
               type="email"
-             
-             
               required
               className="p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
