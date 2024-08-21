@@ -1,17 +1,38 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ServicesCard from "@/components/ServicesCard";
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 import Image from "next/image";
- 
+
 export const metadata: Metadata = {
   title: {
-    absolute:'Services -Hack Repairs'
+    absolute: "Services -Hack Repairs",
   },
-  description: 'Hack Repairs Services',
+  description: "Hack Repairs Services",
+};
+
+interface Services {
+  title: string;
+  img: string;
+  link: string;
 }
-
-
+const services: Services[] = [
+  {
+    title: "phone screen replacement",
+    link: "/services/screen-replacement",
+    img: "/repair.png",
+  },
+  {
+    title: "Computer/laptop services",
+    link: "/services/screen-replacement",
+    img: "/repair.png",
+  },
+  {
+    title: "Other services",
+    link: "/services/screen-replacement",
+    img: "/repair.png",
+  },
+] as const;
 const Services = () => {
   return (
     <>
@@ -20,8 +41,8 @@ const Services = () => {
         {/* hero section */}
         <section className="relative mb-12">
           <Image
-          width={600}
-          height={500}
+            width={600}
+            height={500}
             src="/images/sell-with-us-hero.jpg"
             alt="Sell with us"
             className="w-full h-96 object-cover rounded-lg shadow-lg"
@@ -32,31 +53,26 @@ const Services = () => {
             </h1>
           </div>
         </section>
-        {/* services section */}
-        <section>
+       
+      </div>
+       {/* services section */}
+       <section className="bg-gray-100 p-6">
           <h2 className="text-3xl font-semibold capitalize text-center mb-6">
             Our Services
           </h2>
-          <div className="flex flex-col md:flex-row md:gap-4 ">
-            <ServicesCard
-              title="screen replament"
-              img="/repair.png"
-              link="/services/screen-replacement"
-            />
-
-            <ServicesCard
-              title="Screen Sales Promotion"
-              img="/repair.png"
-              link="/services/screen-replacement"
-            />
-            <ServicesCard
-              title="Digital Marketing"
-              img="/repair.png"
-              link="/services/screen-replacement"
-            />
+          <div className="flex flex-col md:flex-row gap-4 ">
+            {services.map((service, index) => (
+              <div key={index}>
+                {" "}
+                <ServicesCard
+                  title={service.title}
+                  img={service.img}
+                  link={service.link}
+                />
+              </div>
+            ))}
           </div>
         </section>
-      </div>
       <Footer />
     </>
   );

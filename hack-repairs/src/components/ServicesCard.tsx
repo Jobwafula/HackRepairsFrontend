@@ -17,13 +17,13 @@ export default function ServicesCard({ title, img, link }: serviceprops) {
   };
   return (
     <div
-      className="w-full h-52 md:w-[30%] bg-white  relative transition-transform duration-500 ease-in-out hover:scale-105  hover:bg-white hover:cursor-pointer  border border-gray-200 rounded-lg shadow-md"
+      className="w-68 h-auto  p-2 bg-white  relative transition-transform duration-500 ease-in-out hover:scale-105  hover:bg-white hover:cursor-pointer  border border-gray-100 rounded-lg shadow-md"
       onClick={handleClick}
     >
-      <div className='bg-fuchsia-950 hover:bg-white z-50 w-full absolute'>
+      <div className='bg-fuchsia-950  relative hover:bg-white w-full '>
         <Image
-          width={200}
-          height={200}
+          width={400}
+          height={400}
           className="w-full  left-0 top-0 h-48 object-cover rounded-t-lg"
           src={img}
           alt={title}
