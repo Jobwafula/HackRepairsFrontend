@@ -79,7 +79,7 @@ const Categories = () => {
         Shop By category
       </motion.h1>
       {/* cards */}
-      <div className="grid grid-cols-2 md:mx-[4rem] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+      <div className="grid grid-cols-2 md:mx-[4rem] md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
         {categories.map((category) => (
           <div
             key={category.id}
