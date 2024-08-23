@@ -40,7 +40,7 @@ const repairsData = {
     description: "Professional Samsung phone screen replacement services.",
     img: "/screens/samsung/samsung.jpg",
     oldPrice: 2500,
-    newPrice: 2300,
+    newPrice: 2300, 
   },
   itel: {
     title: "Itel",
