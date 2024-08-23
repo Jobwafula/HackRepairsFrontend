@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "lint": "next lint",
     "test": "jest"
+   
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
