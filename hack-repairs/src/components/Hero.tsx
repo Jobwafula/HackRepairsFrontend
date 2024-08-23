@@ -21,15 +21,15 @@ const Hero: React.FC = () => {
         </div>
         <div className="h-screen absolute md:relative inset-0 flex items-center justify-center md:justify-end">
           <Image
-          width={800}
-          height={800}
+            width={800}
+            height={800}
             src="/heroim.png"
             alt="Phone Repair"
             blurDataURL="data:..."
-            placeholder="blur" 
-            objectFit="cover"
+            placeholder="blur"
+
             priority
-            className="w-full h-full"  
+            className="w-full h-full"
           />
           <div className="absolute bg-black inset-0 bg-opacity-50 md:hidden"></div>
         </div>
