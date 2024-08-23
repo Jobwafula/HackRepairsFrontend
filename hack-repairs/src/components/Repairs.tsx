@@ -73,7 +73,7 @@ const Repairs = () => {
   }, [controls, hasAnimated]);
 
   return (
-    <div className="ml-0 md:ml-8 mx-8 md:mx-0 my-8">
+    <div className=" md:ml-8 mx-8 md:mx-0 my-8">
       {/* Available Repairs Section */}
       <motion.h1
         id="animatedText"
