@@ -66,7 +66,7 @@ const Categories = () => {
   };
 
   return (
-    <div className=" mx-8 my-8  ">
+    <div className="mx-6 md:mx-8 my-8  ">
       {/* Animated Heading */}
       <motion.h1
         id="animatedText"
