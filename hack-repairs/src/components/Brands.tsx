@@ -2,6 +2,7 @@
 import Image from 'next/image'
 const Brands = () =>{
 
+    // "@next/swc-win32-x64-msvc": "^14.2.5",
     const brands = [
         {
             name:'Tecno',
