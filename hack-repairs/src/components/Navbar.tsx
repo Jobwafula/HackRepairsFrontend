@@ -91,7 +91,7 @@ const Navbar: React.FC = () => {
               src="/hack-repairs.jpg"
               alt="logo"
             />
-            <p className="text-white text-xl ml-2  md:text-2xl font-semibold">
+            <p className="text-white text-lg  ml-2  md:text-2xl font-semibold">
               Hack-Repairs
             </p>
             <div className="">
