@@ -1,0 +1,12 @@
+.slide1 {
+    background-image: url(/hero.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.slide2 {
+    background-image: url(/heroim.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}

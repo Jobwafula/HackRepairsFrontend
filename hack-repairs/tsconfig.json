@@ -22,6 +22,6 @@
     },
     "types": ["node", "next", "next-auth"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/signout"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/signout", "src/components/embla_component/EmblaCarousel"],
   "exclude": ["node_modules"]
 }

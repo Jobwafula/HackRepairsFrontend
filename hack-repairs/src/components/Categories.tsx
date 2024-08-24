@@ -37,6 +37,12 @@ const typingAnimation = {
   }),
 };
 
+const swipeVariants = {
+  hidden: { x: -100, opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 0.5 } },
+  exit: { x: 100, opacity: 0, transition: { duration: 0.3 } },
+};
+
 const Categories = () => {
   const router = useRouter();
   const controls = useAnimation();
@@ -66,11 +72,11 @@ const Categories = () => {
   };
 
   return (
-    <div className=" mx-8 my-8  ">
+    <div className=" mx-8 my-8 shadow-lg">
       {/* Animated Heading */}
       <motion.h1
         id="animatedText"
-        className="text-2xl font-bold capitalize overflow-hidden whitespace-nowrap"
+        className="text-3xl font-bold capitalize overflow-hidden whitespace-nowrap p-2"
         variants={typingAnimation}
         initial="hidden"
         animate={controls}
@@ -78,15 +84,19 @@ const Categories = () => {
       >
         Shop By category
       </motion.h1>
-      {/* cards */}
-      <div className="grid grid-cols-2 md:mx-[4rem] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+     {/* Category Cards */}
+     <div className="grid grid-cols-2 md:mx-[4rem] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 p-2">
         {categories.map((category) => (
-          <div
+          <motion.div
             key={category.id}
+            className="transition-transform duration-500 ease-in-out hover:scale-105 w-48 hover:cursor-pointer h-48 relative p-4"
+            variants={swipeVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             onClick={() => handleCategoryClick(category.name)}
-            className="transition-transform duration-500 ease-in-out hover:scale-105 w-48 hover:cursor-pointer h-48 relative p-4 "
           >
-            <div className="border p-4  rounded-full flex items-center justify-center">
+            <div className="border p-4 rounded-full flex items-center justify-center">
               <Image
                 width={200}
                 height={300}
@@ -95,10 +105,8 @@ const Categories = () => {
                 className="w-[80%] h-[80%] object-cover mb-4 rounded-md"
               />
             </div>
-            <h2 className=" text-xl font-semibold capitalize">
-              {category.name}
-            </h2>
-          </div>
+            <h2 className="text-xl font-semibold capitalize">{category.name}</h2>
+          </motion.div>
         ))}
       </div>
     </div>

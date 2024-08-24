@@ -1,3 +1,5 @@
+'use client'
+import * as React from 'react'
 import { TiWorld } from "react-icons/ti";
 import {
   MdOutlineWatchLater,
@@ -5,6 +7,21 @@ import {
   MdSecurity,
   MdSupportAgent,
 } from "react-icons/md";
+
+
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
+
+
+
+
 const WhyHR = () => {
   const data = [
     {
@@ -34,10 +51,44 @@ const WhyHR = () => {
         "our support team is available around the clock to assit you",
     },
   ];
+
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  )
+
   return (
-    <section className="mb-12 mt-12">
-      <div className="grid grid-cols-1 bg-gray-100 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {data.map((item) => {
+    <section className="mb-12 mt-12 mx-12">
+      <div className="">
+      <Carousel
+      plugins={[plugin.current]}
+      opts={{
+        align: "start",
+        loop: true
+      }}
+      orientation="horizontal"
+      className="w-full h-30"
+    >
+      <CarouselContent>
+        {data.map((item, index) => (
+          <CarouselItem key={index} className="basis-1/2 md:basis-1/3 bg-gradient-s bg-">
+            <div className="p-1">
+              <Card className="sm:flex flex-wrap">
+                <CardContent className="flex-col text-center w-fit h-fit items-center justify-center">
+                  <span>
+                    <p className="font-semibold  w-fit bg-white text-[3rem]">{item.icon}</p>
+                  </span>
+                  <p className="font-semibold">{item.title}</p>
+                  <p className="font-semibold text-sm">{item.description}</p>
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+        {/* {data.map((item) => {
           return (
             <div key={item.title}>
               <div className="text-center flex flex-col justify-center items-center p-4">
@@ -49,10 +100,14 @@ const WhyHR = () => {
               </div>
             </div>
           );
-        })}
+        })} */}
       </div>
     </section>
   );
 };
 
 export default WhyHR;
+
+
+
+

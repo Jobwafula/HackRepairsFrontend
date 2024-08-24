@@ -15,6 +15,8 @@ import WhyHR from "@/components/home/WhyHR";
 import Brands from "@/components/Brands";
 import Banner from "@/components/Banner";
 import OtherProducts from "@/components/home/OtherProducts";
+import HeroComponent from "@/components/embla_component/HeroComponent";
+
 export const metadata: Metadata = {
   title: "Home - Hack Repairs",
   description: "Hack Repairs Home Page",
@@ -22,9 +24,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="md:mx-60">
       <Navbar />
-      <Hero />
+      <HeroComponent />
       <WhyHR />
       <Categories />
       <Banner />
