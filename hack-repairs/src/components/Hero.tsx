@@ -1,8 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import HeroComponent from "./embla_component/HeroComponent";
+
+
 const Hero: React.FC = () => {
   return (
+    <>
     <div className="h-screen relative ">
       <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 items-center gap-8 h-full">
         <div className="text-center flex flex-col justify-center items-center lg:items-start z-50 lg:text-left h-full">
@@ -35,6 +39,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
