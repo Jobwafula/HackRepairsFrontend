@@ -36,15 +36,13 @@ const ScreenSalesCard: React.FC<ScreensalesCardProps> = ({
         placeholder="blur"
         blurDataURL='....'
       />
-
       <div className="p-2 flex text-gray-800 justify-between items-center  w-full ">
         <div>
           <h2 className="text-lg font-semibold ">{sales.title}</h2>
           <p className="text-lg font-bold">Ksh {sales.newPrice}</p>
         </div>
         <div className="text-right">
-          <p className="text-sm line-through">Ksh {sales.oldPrice}</p>
-         
+          <p className="text-sm line-through">Ksh {sales.oldPrice}</p>  
         </div>
       </div>
     </div>

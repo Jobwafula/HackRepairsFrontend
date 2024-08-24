@@ -30,13 +30,8 @@ export default function Home() {
       <Banner />
       <Repairs />
       <OtherProducts />
-      
-
-      {/* <OurPartners /> */}
-
       <Contact />
       <Brands />
-
       <Footer />
     </div>
   );
